@@ -75,11 +75,10 @@ export class PublicESIService {
                 }
 
                 return response.data as T;
-
-            } else {
-                const errorMessage = `${url} ${response.status} ${response.statusText}\n${response.data}`;
-                throw new Error(`Request not OK: ${errorMessage}`);
             }
+
+            const errorMessage = `${url} ${response.status} ${response.statusText}\n${response.data}`;
+            throw new Error(`Request not OK: ${errorMessage}`);
         }
 
         return;
