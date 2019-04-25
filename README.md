@@ -6,7 +6,7 @@
 [![codecov](https://img.shields.io/codecov/c/github/Ionaru/eve-utils/master.svg?style=for-the-badge)](https://codecov.io/gh/Ionaru/eve-utils)
 
 ## Description
-A package for...
+A package containing various utilities for working with EVE Online's ESI and SDE.
 
 ## Usage
 ```
