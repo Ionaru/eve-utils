@@ -4,7 +4,7 @@ import chalk, { Chalk, ColorSupport } from 'chalk';
 import Debug from 'debug';
 import * as httpStatus from 'http-status-codes';
 
-import { CacheController } from '../controllers/cache.controller';
+import { CacheController } from '..';
 
 interface IConstructorParameters {
     axiosInstance?: AxiosInstance;
