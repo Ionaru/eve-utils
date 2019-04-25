@@ -43,7 +43,7 @@ export class PublicESIService {
     private readonly axiosInstance: AxiosInstance;
     private readonly cacheController?: CacheController;
 
-    constructor({axiosInstance, cacheController}: IConstructorParameters) {
+    constructor({axiosInstance, cacheController}: IConstructorParameters = {}) {
 
         if (axiosInstance) {
             this.axiosInstance = axiosInstance;
