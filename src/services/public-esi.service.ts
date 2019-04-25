@@ -67,22 +67,17 @@ export class PublicESIService {
         if (response) {
             const statusMessage = `${response.status} ${response.statusText}`;
             PublicESIService.debug(`${url} => ${statusMessage}`);
-            if (response.status === httpStatus.OK || response.status === httpStatus.NOT_MODIFIED) {
 
-                if (response.headers.warning) {
-                    PublicESIService.logWarning(url, response.headers.warning);
-                }
-
-                if (this.cacheController) {
-                    this.cacheController.saveToCache(response);
-                    return this.cacheController.responseCache[url].data as T;
-                }
-
-                return response.data as T;
+            if (response.headers.warning) {
+                PublicESIService.logWarning(url, response.headers.warning);
             }
 
-            const errorMessage = `${url} ${response.status} ${response.statusText}\n${response.data}`;
-            throw new Error(`Request not OK: ${errorMessage}`);
+            if (this.cacheController) {
+                this.cacheController.saveToCache(response);
+                return this.cacheController.responseCache[url].data as T;
+            }
+
+            return response.data as T;
         }
 
         return;
