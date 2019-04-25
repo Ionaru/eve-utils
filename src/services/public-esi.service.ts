@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import chalk, { Chalk, ColorSupport } from 'chalk';
 import Debug from 'debug';
 import * as httpStatus from 'http-status-codes';
 
@@ -22,20 +21,6 @@ export class PublicESIService {
     private static readonly deprecationsLogged: string[] = [];
 
     private static readonly debug = Debug('eve-utils:BaseESIService');
-
-    private static getStatusColor(statusCode: number): Chalk & { supportsColor: ColorSupport } {
-        if (statusCode >= 500) {
-            return chalk.red;
-        } else if (statusCode >= 400) {
-            return chalk.yellow;
-        } else if (statusCode >= 300) {
-            return chalk.cyan;
-        } else if (statusCode >= 200) {
-            return chalk.green;
-        } else {
-            return chalk.whiteBright;
-        }
-    }
 
     private static validateStatus = (status: number) => status === httpStatus.OK || status === httpStatus.NOT_MODIFIED;
 
@@ -77,7 +62,7 @@ export class PublicESIService {
 
         if (response) {
             const statusMessage = `${response.status} ${response.statusText}`;
-            PublicESIService.debug(`${url} => ${PublicESIService.getStatusColor(response.status)(statusMessage)}`);
+            PublicESIService.debug(`${url} => ${statusMessage}`);
             if (response.status === httpStatus.OK || response.status === httpStatus.NOT_MODIFIED) {
 
                 if (response.headers.warning) {
