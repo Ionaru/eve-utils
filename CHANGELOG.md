@@ -8,4 +8,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Setup for this project
 
-[Unreleased]: https://github.com/Ionaru/eve-utils/compare/0.0.1...HEAD
+[Unreleased]: https://github.com/Ionaru/eve-utils/compare/6afcfb8...HEAD
