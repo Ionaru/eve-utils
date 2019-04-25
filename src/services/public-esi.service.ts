@@ -22,7 +22,12 @@ export class PublicESIService {
 
     private static readonly debug = Debug('eve-utils:BaseESIService');
 
-    private static validateStatus = (status: number) => status === httpStatus.OK || status === httpStatus.NOT_MODIFIED;
+    private static readonly acceptedStatusCodes = [
+        httpStatus.OK,
+        httpStatus.NOT_MODIFIED,
+    ];
+
+    private static validateStatus = (status: number) => PublicESIService.acceptedStatusCodes.includes(status);
 
     private readonly axiosInstance: AxiosInstance;
     private readonly cacheController?: CacheController;
