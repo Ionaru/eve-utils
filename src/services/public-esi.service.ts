@@ -1,4 +1,3 @@
-import { HttpsAgent } from 'agentkeepalive';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import chalk, { Chalk, ColorSupport } from 'chalk';
 import Debug from 'debug';
@@ -45,24 +44,7 @@ export class PublicESIService {
 
     constructor({axiosInstance, cacheController}: IConstructorParameters = {}) {
 
-        if (axiosInstance) {
-            this.axiosInstance = axiosInstance;
-        } else {
-            // Create a new axios instance with default optimizations.
-            this.axiosInstance = axios.create({
-                // 60 sec timeout
-                timeout: 60000,
-
-                // KeepAlive pools and reuses TCP connections, so it's faster.
-                httpsAgent: new HttpsAgent(),
-
-                // Follow up to 10 HTTP 3xx redirects.
-                maxRedirects: 10,
-
-                // Cap the maximum content length we'll accept to 50MBs, just in case.
-                maxContentLength: 50 * 1000 * 1000,
-            });
-        }
+        this.axiosInstance = axiosInstance ? axiosInstance : axios.create();
 
         this.cacheController = cacheController;
         if (!this.cacheController) {
