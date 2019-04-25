@@ -17,14 +17,30 @@ export class CacheController {
 
     public static isExpired = (cache?: ICacheObject) => cache && cache.expiry ? cache.expiry < Date.now() : true;
 
-    public static dumpCache(path: string, cache: IResponseCache) {
-        const cacheString = JSON.stringify(cache);
-        writeFileSync(path, cacheString);
+    private static readonly debug = Debug('eve-utils:CacheController');
+
+    public readonly responseCache: IResponseCache = {};
+
+    private readonly savePath?: string;
+
+    constructor(savePath?: string) {
+        this.savePath = savePath;
+
+        if (this.savePath) {
+            this.responseCache = this.readCache();
+        }
     }
 
-    public static readCache(path: string): IResponseCache {
-        if (existsSync(path)) {
-            const cacheString = readFileSync(path).toString();
+    public dumpCache() {
+        if (this.savePath) {
+            const cacheString = JSON.stringify(this.responseCache);
+            writeFileSync(this.savePath, cacheString);
+        }
+    }
+
+    public readCache(): IResponseCache {
+        if (this.savePath && existsSync(this.savePath)) {
+            const cacheString = readFileSync(this.savePath).toString();
             let cacheJson;
             try {
                 cacheJson = JSON.parse(cacheString);
@@ -38,20 +54,6 @@ export class CacheController {
             }
         }
         return {};
-    }
-
-    private static readonly debug = Debug('eve-utils:CacheController');
-
-    public readonly responseCache: IResponseCache = {};
-
-    private readonly savePath?: string;
-
-    constructor(savePath?: string) {
-        this.savePath = savePath;
-
-        if (this.savePath) {
-            this.responseCache = CacheController.readCache(this.savePath);
-        }
     }
 
     public saveToCache(response: AxiosResponse) {
