@@ -98,7 +98,7 @@ describe('PublicESIService tests', () => {
         expect(warningSpy).toHaveBeenCalledWith('No CacheController instance given to PublicESIService, requests will not be cached!');
     });
 
-    test('fetchUniverseType(34)', async () => {
+    test('fetchESIData', async () => {
 
         mockAxios.get.mockImplementationOnce(async () => axiosGetMock({
             config: {url},
@@ -118,7 +118,7 @@ describe('PublicESIService tests', () => {
         expect(result!.name).toEqual('Tritanium');
     });
 
-    test('fetchUniverseType(34) expiry caching', async () => {
+    test('fetchESIData expiry caching', async () => {
 
         mockAxios.get.mockImplementationOnce(async () => axiosGetMock({
             config: {url},
@@ -149,7 +149,7 @@ describe('PublicESIService tests', () => {
         expect(result2!.name).toEqual('Tritanium');
     });
 
-    test('fetchUniverseType(34) etag caching', async () => {
+    test('fetchESIData etag caching', async () => {
 
         mockAxios.get.mockImplementationOnce(async () => axiosGetMock({
             config: {url},
@@ -193,7 +193,7 @@ describe('PublicESIService tests', () => {
         expect(result2!.name).toEqual('Tritanium');
     });
 
-    test('fetchUniverseType(34) error', async () => {
+    test('fetchESIData error', async () => {
 
         mockAxios.get.mockImplementationOnce(async () => axiosGetMock({
             config: {url},
@@ -209,7 +209,7 @@ describe('PublicESIService tests', () => {
         await expect(esi.fetchESIData<ITypeData>(url)).rejects.toThrow('HTTP Error');
     });
 
-    test('fetchUniverseType(34) no response', async () => {
+    test('fetchESIData no response', async () => {
 
         mockAxios.get.mockImplementationOnce(() => Promise.resolve());
 
@@ -222,7 +222,7 @@ describe('PublicESIService tests', () => {
         expect(result).toBeUndefined();
     });
 
-    test('fetchUniverseType(34) warning', async () => {
+    test('fetchESIData warning', async () => {
 
         mockAxios.get.mockImplementationOnce(async () => axiosGetMock({
             config: {url},
