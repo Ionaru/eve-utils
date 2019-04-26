@@ -8,7 +8,7 @@ import { PublicESIService } from './public-esi.service';
 
 describe('PublicESIService tests', () => {
 
-    const url = 'https://esi.evetech.net/v3/universe/types/34';
+    const url = 'https://esi.url/v0/universe/types/34';
 
     interface ITypeData {
         name: string;
