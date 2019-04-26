@@ -41,12 +41,13 @@ describe('URL creators', () => {
         [EVE.getMarketOrdersURL(5, 6, 7, 'all'), 'https://esi.evetech.net/v1/markets/5/orders/?type_id=6&page=7&order_type=all'],
         [EVE.getMarketOrdersURL(5, 6, 7), 'https://esi.evetech.net/v1/markets/5/orders/?type_id=6&page=7&order_type=all'],
 
-        [EVE.getRegionsURL(), 'https://esi.evetech.net/v1/universe/regions/'],
         [EVE.getStatusUrl(), 'https://esi.evetech.net/v1/status/'],
+
+        [EVE.getUniverseRegions(), 'https://esi.evetech.net/v1/universe/regions/'],
+        [EVE.getUniverseNamesUrl(), 'https://esi.evetech.net/v2/universe/names/'],
 
         [EVE.getUniverseCategoriesUrl(5), 'https://esi.evetech.net/v1/universe/categories/5/'],
         [EVE.getUniverseGroupsUrl(5), 'https://esi.evetech.net/v1/universe/groups/5/'],
-        [EVE.getUniverseNamesUrl(), 'https://esi.evetech.net/v2/universe/names/'],
         [EVE.getUniverseStructuresUrl(5), 'https://esi.evetech.net/v2/universe/structures/5/'],
         [EVE.getUniverseTypesUrl(5), 'https://esi.evetech.net/v3/universe/types/5/'],
 

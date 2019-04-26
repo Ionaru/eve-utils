@@ -275,7 +275,7 @@ export class EVE {
         return url;
     }
 
-    public static getRegionsURL() {
+    public static getUniverseRegions() {
         return EVE.constructESIURL(1, 'universe', 'regions');
     }
 
