@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import Debug from 'debug';
 import * as httpStatus from 'http-status-codes';
 
-import { CacheController } from '..';
+import { CacheController } from './';
 
 interface IConstructorParameters {
     axiosInstance?: AxiosInstance;

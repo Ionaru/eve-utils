@@ -2,8 +2,8 @@
 
 import { AxiosResponse } from 'axios';
 
-import { CacheController } from '..';
-import mockAxios from '../__mocks__/axios';
+import { CacheController } from './';
+import mockAxios from './__mocks__/axios';
 import { PublicESIService } from './public-esi.service';
 
 describe('PublicESIService tests', () => {
