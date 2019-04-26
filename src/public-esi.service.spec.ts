@@ -26,7 +26,7 @@ describe('PublicESIService tests', () => {
 
     afterEach(() => {
         warningSpy.mockClear();
-        mockAxios.get.mockRestore();
+        mockAxios.get.mockClear();
     });
 
     function axiosCreateMock() {
@@ -244,6 +244,29 @@ describe('PublicESIService tests', () => {
         expect(result!.name).toEqual('Tritanium');
 
         expect(warningSpy).toHaveBeenCalledWith(`HTTP request warning. ${url}: You have been warned!`);
+    });
+
+    test('fetchESIData custom onRouteWarning', async () => {
+
+        mockAxios.get.mockImplementationOnce(async () => axiosGetMock({
+            config: {url},
+            data: expectedResult,
+            headers: {
+                warning: 'You have been warned again!',
+            },
+            status: 200,
+            statusText: 'OK',
+        }));
+
+        // @ts-ignore
+        const esi = new PublicESIService({
+            axiosInstance: mockAxios,
+            onRouteWarning: (route, text) => {
+                throw new Error(`Route warning: ${route}, ${text}`);
+            },
+        });
+
+        await expect(esi.fetchESIData<ITypeData>(url)).rejects.toThrow(`Route warning: ${url}, You have been warned again!`);
     });
 
     test('validateStatus', async () => {

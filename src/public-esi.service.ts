@@ -7,18 +7,10 @@ import { CacheController } from './';
 interface IConstructorParameters {
     axiosInstance?: AxiosInstance;
     cacheController?: CacheController;
+    onRouteWarning?: (route: string, text?: string) => void;
 }
 
 export class PublicESIService {
-
-    public static logWarning(route: string, text?: string) {
-        if (!PublicESIService.deprecationsLogged.includes(route)) {
-            process.emitWarning(`HTTP request warning. ${route}: ${text}`);
-            PublicESIService.deprecationsLogged.push(route);
-        }
-    }
-
-    private static readonly deprecationsLogged: string[] = [];
 
     private static readonly debug = Debug('eve-utils:BaseESIService');
 
@@ -31,8 +23,13 @@ export class PublicESIService {
 
     private readonly axiosInstance: AxiosInstance;
     private readonly cacheController?: CacheController;
+    private readonly onRouteWarning?: (route: string, text?: string) => void;
 
-    constructor({axiosInstance, cacheController}: IConstructorParameters = {}) {
+    private readonly deprecationsLogged: string[] = [];
+
+    constructor({axiosInstance, cacheController, onRouteWarning}: IConstructorParameters = {}) {
+
+        this.onRouteWarning = onRouteWarning;
 
         this.axiosInstance = axiosInstance ? axiosInstance : axios.create();
 
@@ -69,7 +66,7 @@ export class PublicESIService {
             PublicESIService.debug(`${url} => ${statusMessage}`);
 
             if (response.headers.warning) {
-                PublicESIService.logWarning(url, response.headers.warning);
+                this.logWarning(url, response.headers.warning);
             }
 
             if (this.cacheController) {
@@ -81,5 +78,17 @@ export class PublicESIService {
         }
 
         return;
+    }
+
+    public logWarning(route: string, text?: string) {
+        if (!this.deprecationsLogged.includes(route)) {
+
+            if (this.onRouteWarning) {
+                this.onRouteWarning(route, text);
+            }
+
+            process.emitWarning(`HTTP request warning. ${route}: ${text}`);
+            this.deprecationsLogged.push(route);
+        }
     }
 }
