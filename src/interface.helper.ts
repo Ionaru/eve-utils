@@ -126,7 +126,7 @@ export interface ICharacterAttributesData {
     willpower: number;
 }
 
-export type ICharacterWalletJournalData = ICharacterWalletJournalDataUnit;
+export type ICharacterWalletJournalData = ICharacterWalletJournalDataUnit[];
 export interface ICharacterWalletJournalDataUnit {
     // The amount of ISK given or taken from the wallet as a result of the given transaction. Positive when ISK is deposited into the wallet
     // and negative when ISK is withdrawn
@@ -179,7 +179,7 @@ export interface ICharacterWalletJournalDataUnit {
 
 type IIndustryStatus = 'active' | 'cancelled' | 'delivered' | 'paused' | 'ready' | 'reverted';
 
-export type ICharacterIndustryJobsData = ICharacterIndustryJobsDataUnit;
+export type ICharacterIndustryJobsData = ICharacterIndustryJobsDataUnit[];
 export interface ICharacterIndustryJobsDataUnit {
     // Job activity ID
     activity_id: IndustryActivity;
@@ -250,7 +250,7 @@ export interface ICharacterIndustryJobsDataUnit {
     successful_runs?: number;
 }
 
-export type ICharacterBlueprintsData = ICharacterBlueprintsDataUnit;
+export type ICharacterBlueprintsData = ICharacterBlueprintsDataUnit[];
 export interface ICharacterBlueprintsDataUnit {
     // Unique ID for this item.
     item_id: number;
