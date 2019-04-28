@@ -1,4 +1,4 @@
-import { EVE } from './eve.helper';
+import { EVE } from './';
 
 describe('URL tests', () => {
 
