@@ -4,7 +4,12 @@ All notable changes to the eve-utils project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<!--## [Unreleased]-->
+## [Unreleased]
+### BREAKING CHANGES
+- Updated getCharacterWalletJournalUrl to v6.
+- Updated ICharacterWalletJournalDataUnit to match v6 route.
+- Added types for ref_type and context_id_type to ICharacterWalletJournalDataUnit.
+
 ## [2.0.0] 2019-04-29
 ### BREAKING CHANGES
 - Moved PublicEsiService and CacheController to esi-service package.

@@ -1,4 +1,5 @@
 export type IMarketOrdersData = IMarketOrdersDataUnit[];
+
 export interface IMarketOrdersDataUnit {
     order_id: number;
     type_id: number;
@@ -43,6 +44,7 @@ export interface IDogmaEffects {
 }
 
 export type IUniverseNamesData = IUniverseNamesDataUnit[];
+
 export interface IUniverseNamesDataUnit {
     category: string;
     id: number;
@@ -84,6 +86,7 @@ export interface ICharacterSkillsData {
 }
 
 export type ICharacterSkillQueueData = ICharacterSkillQueueDataUnit[];
+
 export interface ICharacterSkillQueueDataUnit {
     finish_date?: string;
 
@@ -126,7 +129,143 @@ export interface ICharacterAttributesData {
     willpower: number;
 }
 
+export type contextIdType =
+    'structure_id'
+    | 'station_id'
+    | 'market_transaction_id'
+    | 'character_id'
+    | 'corporation_id'
+    | 'alliance_id'
+    | 'eve_system'
+    | 'industry_job_id'
+    | 'contract_id'
+    | 'planet_id'
+    | 'system_id'
+    | 'type_id';
+
+export type refType =
+    'acceleration_gate_fee'
+    | 'advertisement_listing_fee'
+    | 'agent_donation'
+    | 'agent_location_services'
+    | 'agent_miscellaneous'
+    | 'agent_mission_collateral_paid'
+    | 'agent_mission_collateral_refunded'
+    | 'agent_mission_reward'
+    | 'agent_mission_reward_corporation_tax'
+    | 'agent_mission_time_bonus_reward'
+    | 'agent_mission_time_bonus_reward_corporation_tax'
+    | 'agent_security_services'
+    | 'agent_services_rendered'
+    | 'agents_preward'
+    | 'alliance_maintainance_fee'
+    | 'alliance_registration_fee'
+    | 'asset_safety_recovery_tax'
+    | 'bounty'
+    | 'bounty_prize'
+    | 'bounty_prize_corporation_tax'
+    | 'bounty_prizes'
+    | 'bounty_reimbursement'
+    | 'bounty_surcharge'
+    | 'brokers_fee'
+    | 'clone_activation'
+    | 'clone_transfer'
+    | 'contraband_fine'
+    | 'contract_auction_bid'
+    | 'contract_auction_bid_corp'
+    | 'contract_auction_bid_refund'
+    | 'contract_auction_sold'
+    | 'contract_brokers_fee'
+    | 'contract_brokers_fee_corp'
+    | 'contract_collateral'
+    | 'contract_collateral_deposited_corp'
+    | 'contract_collateral_payout'
+    | 'contract_collateral_refund'
+    | 'contract_deposit'
+    | 'contract_deposit_corp'
+    | 'contract_deposit_refund'
+    | 'contract_deposit_sales_tax'
+    | 'contract_price'
+    | 'contract_price_payment_corp'
+    | 'contract_reversal'
+    | 'contract_reward'
+    | 'contract_reward_deposited'
+    | 'contract_reward_deposited_corp'
+    | 'contract_reward_refund'
+    | 'contract_sales_tax'
+    | 'copying'
+    | 'corporate_reward_payout'
+    | 'corporate_reward_tax'
+    | 'corporation_account_withdrawal'
+    | 'corporation_bulk_payment'
+    | 'corporation_dividend_payment'
+    | 'corporation_liquidation'
+    | 'corporation_logo_change_cost'
+    | 'corporation_payment'
+    | 'corporation_registration_fee'
+    | 'courier_mission_escrow'
+    | 'cspa'
+    | 'cspaofflinerefund'
+    | 'datacore_fee'
+    | 'dna_modification_fee'
+    | 'docking_fee'
+    | 'duel_wager_escrow'
+    | 'duel_wager_payment'
+    | 'duel_wager_refund'
+    | 'factory_slot_rental_fee'
+    | 'gm_cash_transfer'
+    | 'industry_job_tax'
+    | 'infrastructure_hub_maintenance'
+    | 'inheritance'
+    | 'insurance'
+    | 'item_trader_payment'
+    | 'jump_clone_activation_fee'
+    | 'jump_clone_installation_fee'
+    | 'kill_right_fee'
+    | 'lp_store'
+    | 'manufacturing'
+    | 'market_escrow'
+    | 'market_fine_paid'
+    | 'market_transaction'
+    | 'medal_creation'
+    | 'medal_issued'
+    | 'mission_completion'
+    | 'mission_cost'
+    | 'mission_expiration'
+    | 'mission_reward'
+    | 'office_rental_fee'
+    | 'operation_bonus'
+    | 'opportunity_reward'
+    | 'planetary_construction'
+    | 'planetary_export_tax'
+    | 'planetary_import_tax'
+    | 'player_donation'
+    | 'player_trading'
+    | 'project_discovery_reward'
+    | 'project_discovery_tax'
+    | 'reaction'
+    | 'release_of_impounded_property'
+    | 'repair_bill'
+    | 'reprocessing_tax'
+    | 'researching_material_productivity'
+    | 'researching_technology'
+    | 'researching_time_productivity'
+    | 'resource_wars_reward'
+    | 'reverse_engineering'
+    | 'security_processing_fee'
+    | 'shares'
+    | 'skill_purchase'
+    | 'sovereignity_bill'
+    | 'store_purchase'
+    | 'store_purchase_refund'
+    | 'structure_gate_jump'
+    | 'transaction_tax'
+    | 'upkeep_adjustment_fee'
+    | 'war_ally_contract'
+    | 'war_fee'
+    | 'war_fee_surrender';
 export type ICharacterWalletJournalData = ICharacterWalletJournalDataUnit[];
+
 export interface ICharacterWalletJournalDataUnit {
     // The amount of ISK given or taken from the wallet as a result of the given transaction. Positive when ISK is deposited into the wallet
     // and negative when ISK is withdrawn
@@ -140,7 +279,7 @@ export interface ICharacterWalletJournalDataUnit {
     context_id?: number;
 
     // The type of the given context_id if present
-    context_id_type?: string;
+    context_id_type?: contextIdType;
 
     // Date and time of transaction
     date: string;
@@ -164,11 +303,8 @@ export interface ICharacterWalletJournalDataUnit {
     // The user stated reason for the transaction. Only applies to some ref_types
     reason?: string;
 
-    // The transaction type for the given transaction. Different transaction types will populate different attributes. Note: If you have an
-    // existing XML API application that is using ref_types, you will need to know which string ESI ref_type maps to which integer. You can
-    // look at the following file to see string->int mappings:
-    // https://github.com/ccpgames/eve-glue/blob/master/eve_glue/wallet_journal_ref.py
-    ref_type: string;
+    // The transaction type for the given transaction. Different transaction types will populate different attributes.
+    ref_type: refType;
 
     // Tax amount received. Only applies to tax related transactions
     tax?: number;
@@ -180,6 +316,7 @@ export interface ICharacterWalletJournalDataUnit {
 type IIndustryStatus = 'active' | 'cancelled' | 'delivered' | 'paused' | 'ready' | 'reverted';
 
 export type ICharacterIndustryJobsData = ICharacterIndustryJobsDataUnit[];
+
 export interface ICharacterIndustryJobsDataUnit {
     // Job activity ID
     activity_id: IndustryActivity;
@@ -251,6 +388,7 @@ export interface ICharacterIndustryJobsDataUnit {
 }
 
 export type ICharacterBlueprintsData = ICharacterBlueprintsDataUnit[];
+
 export interface ICharacterBlueprintsDataUnit {
     // Unique ID for this item.
     item_id: number;
@@ -304,6 +442,7 @@ export interface IUniverseStructureData {
 }
 
 export type IIndustryActivityProductsData = IIndustryActivityProductsDataUnit[];
+
 export interface IIndustryActivityProductsDataUnit {
     typeID: number;
     activityID: number;
@@ -312,6 +451,7 @@ export interface IIndustryActivityProductsDataUnit {
 }
 
 export type IIndustryActivitySkillsData = IIndustryActivitySkillsDataUnit[];
+
 export interface IIndustryActivitySkillsDataUnit {
     typeID: number;
     activityID: number;
@@ -320,6 +460,7 @@ export interface IIndustryActivitySkillsDataUnit {
 }
 
 export type IIndustryActivityMaterialsData = IIndustryActivityMaterialsDataUnit[];
+
 export interface IIndustryActivityMaterialsDataUnit {
     typeID: number;
     activityID: number;
@@ -328,6 +469,7 @@ export interface IIndustryActivityMaterialsDataUnit {
 }
 
 export type IInvTypeMaterialsData = IInvTypeMaterialsDataUnit[];
+
 export interface IInvTypeMaterialsDataUnit {
     typeID: number;
     materialTypeID: number;
@@ -335,6 +477,7 @@ export interface IInvTypeMaterialsDataUnit {
 }
 
 export type IIndustryActivityData = IIndustryActivityDataUnit[];
+
 export interface IIndustryActivityDataUnit {
     typeID: number;
     activityID: number;
@@ -354,6 +497,7 @@ export enum IndustryActivity {
 }
 
 export type MarketGroupsData = IMarketGroupData[];
+
 export interface IMarketGroupData {
     description: string;
     market_group_id: number;

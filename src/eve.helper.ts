@@ -308,7 +308,7 @@ export class EVE {
     }
 
     public static getCharacterWalletJournalUrl(characterId: number) {
-        return EVE.constructESIURL(4, 'characters', characterId, 'wallet', 'journal');
+        return EVE.constructESIURL(6, 'characters', characterId, 'wallet', 'journal');
     }
 
     public static getUniverseTypesUrl(typeId: number) {
