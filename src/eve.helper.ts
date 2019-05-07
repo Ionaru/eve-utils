@@ -8,6 +8,72 @@ export class EVE {
 
     public static readonly skillCategoryId = 16;
 
+    public static readonly gas = Object.freeze({
+        'Fullerite-C28': 30375,
+        'Fullerite-C32': 30376,
+        'Fullerite-C320': 30377,
+        'Fullerite-C50': 30370,
+        'Fullerite-C540': 30378,
+        'Fullerite-C60': 30371,
+        'Fullerite-C70': 30372,
+        'Fullerite-C72': 30373,
+        'Fullerite-C84': 30374,
+
+        'Amber Cytoserocin': 25268,
+        'Amber Mykoserocin': 28694,
+        'Azure Cytoserocin': 25279,
+        'Azure Mykoserocin': 28695,
+        'Celadon Cytoserocin': 25275,
+        'Celadon Mykoserocin': 28696,
+        'Chartreuse Cytoserocin': 28630, // Unavailable on market.
+        'Gamboge Cytoserocin': 28629, // Unavailable on market.
+        'Golden Cytoserocin': 25273,
+        'Golden Mykoserocin': 28697,
+        'Hiemal Tricarboxyl Vapor': 49787, // In Materials - Raw Materials - Standard Ores - Veldspar ?
+        'Lime Cytoserocin': 25277,
+        'Lime Mykoserocin': 28698,
+        'Malachite Cytoserocin': 25276,
+        'Malachite Mykoserocin': 28699,
+        'Vermillion Cytoserocin': 25278,
+        'Vermillion Mykoserocin': 28700,
+        'Viridian Cytoserocin': 25274,
+        'Viridian Mykoserocin': 28701,
+    });
+
+    public static readonly gasses = Object.freeze({
+        'ALL': Object.values(EVE.gas),
+        'Booster Gas Clouds': [
+            EVE.gas['Amber Cytoserocin'],
+            EVE.gas['Amber Mykoserocin'],
+            EVE.gas['Azure Cytoserocin'],
+            EVE.gas['Azure Mykoserocin'],
+            EVE.gas['Celadon Cytoserocin'],
+            EVE.gas['Celadon Mykoserocin'],
+            EVE.gas['Gamboge Cytoserocin'],
+            EVE.gas['Golden Cytoserocin'],
+            EVE.gas['Golden Mykoserocin'],
+            EVE.gas['Lime Cytoserocin'],
+            EVE.gas['Lime Mykoserocin'],
+            EVE.gas['Malachite Cytoserocin'],
+            EVE.gas['Malachite Mykoserocin'],
+            EVE.gas['Vermillion Cytoserocin'],
+            EVE.gas['Vermillion Mykoserocin'],
+            EVE.gas['Viridian Cytoserocin'],
+            EVE.gas['Viridian Mykoserocin'],
+        ],
+        'Fullerenes': [
+            EVE.gas['Fullerite-C28'],
+            EVE.gas['Fullerite-C32'],
+            EVE.gas['Fullerite-C50'],
+            EVE.gas['Fullerite-C60'],
+            EVE.gas['Fullerite-C70'],
+            EVE.gas['Fullerite-C72'],
+            EVE.gas['Fullerite-C84'],
+            EVE.gas['Fullerite-C320'],
+            EVE.gas['Fullerite-C540'],
+        ],
+    });
+
     /* tslint:disable:object-literal-sort-keys */
     public static readonly mineral = Object.freeze({
         tritanium: 34,

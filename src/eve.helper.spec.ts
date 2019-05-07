@@ -67,4 +67,10 @@ describe('Ores & minerals', () => {
     test('minerals', () => {
         expect(EVE.minerals).toContain(EVE.mineral.tritanium);
     });
+
+    test('gasses', () => {
+        expect(EVE.gasses.Fullerenes).toContain(EVE.gas['Fullerite-C72']);
+        expect(EVE.gasses['Booster Gas Clouds']).toContain(EVE.gas['Viridian Cytoserocin']);
+        expect(EVE.gasses.ALL).toContain(EVE.gas['Gamboge Cytoserocin']);
+    });
 });
