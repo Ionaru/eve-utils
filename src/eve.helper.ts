@@ -49,7 +49,6 @@ export class EVE {
             EVE.gas['Azure Mykoserocin'],
             EVE.gas['Celadon Cytoserocin'],
             EVE.gas['Celadon Mykoserocin'],
-            EVE.gas['Gamboge Cytoserocin'],
             EVE.gas['Golden Cytoserocin'],
             EVE.gas['Golden Mykoserocin'],
             EVE.gas['Lime Cytoserocin'],
