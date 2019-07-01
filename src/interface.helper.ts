@@ -505,3 +505,34 @@ export interface IMarketGroupData {
     parent_group_id: number;
     types: number[];
 }
+
+export interface ICharacterData {
+    // The character’s alliance ID
+    alliance_id?: number;
+
+    ancestry_id?: number;
+
+    // Creation date of the character
+    birthday: number;
+
+    bloodline_id: number;
+
+    // The character’s corporation ID
+    corporation_id: number;
+
+    description?: string;
+
+    // ID of the faction the character is fighting for, if the character is enlisted in Factional Warfare
+    faction_id?: number;
+
+    gender: 'male' | 'female';
+
+    name: string;
+
+    race_id: number;
+
+    security_status?: number;
+
+    // The individual title of the character
+    title?: string;
+}

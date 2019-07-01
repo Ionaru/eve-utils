@@ -306,6 +306,10 @@ export class EVE {
         return `${EVE.SDEURL}/industryActivitySkills.json`;
     }
 
+    public static getCharacterUrl(characterId: number) {
+        return EVE.constructESIURL(4, 'characters', characterId);
+    }
+
     public static getCharacterIndustryJobsUrl(characterId: number) {
         return EVE.constructESIURL(1, 'characters', characterId, 'industry', 'jobs');
     }

@@ -18,6 +18,7 @@ describe('URL creators', () => {
 
     test.each([
 
+        [EVE.getCharacterUrl(5), 'https://esi.evetech.net/v4/characters/5/'],
         [EVE.getCharacterAttributesUrl(5), 'https://esi.evetech.net/v1/characters/5/attributes/'],
         [EVE.getCharacterBlueprintsUrl(5), 'https://esi.evetech.net/v2/characters/5/blueprints/'],
         [EVE.getCharacterShipUrl(5), 'https://esi.evetech.net/v1/characters/5/ship/'],
