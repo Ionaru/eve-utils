@@ -5,12 +5,14 @@ describe('URL tests', () => {
     test.each([
 
         [[1, []], 'https://esi.evetech.net/v1/'],
+        [[1, []], 'https://esi.evetech.net/v1/'],
         [[2, ['thing']], 'https://esi.evetech.net/v2/thing/'],
         [[3, ['thing', 'other']], 'https://esi.evetech.net/v3/thing/other/'],
         [[4, ['thing', 'other', 6]], 'https://esi.evetech.net/v4/thing/other/6/'],
 
     ])('constructESIURL %j', (parameters, expected) => {
-        expect(EVE.constructESIURL(parameters[0] as number, ...parameters[1] as string[])).toEqual(expected);
+        expect(EVE.constructESIUrl(parameters[0] as number, parameters[1] as string[], {})).toEqual(expected);
+        expect(EVE.constructESIUrl(parameters[0] as number, parameters[1] as string[])).toEqual(expected);
     });
 });
 
@@ -37,20 +39,26 @@ describe('URL creators', () => {
         [EVE.getMarketGroupsUrl(), 'https://esi.evetech.net/v1/markets/groups/'],
         [EVE.getMarketGroupUrl(5), 'https://esi.evetech.net/v1/markets/groups/5/'],
 
-        [EVE.getMarketOrdersURL(5, 6, 7, 'buy'), 'https://esi.evetech.net/v1/markets/5/orders/?type_id=6&page=7&order_type=buy'],
-        [EVE.getMarketOrdersURL(5, 6, 7, 'sell'), 'https://esi.evetech.net/v1/markets/5/orders/?type_id=6&page=7&order_type=sell'],
-        [EVE.getMarketOrdersURL(5, 6, 7, 'all'), 'https://esi.evetech.net/v1/markets/5/orders/?type_id=6&page=7&order_type=all'],
-        [EVE.getMarketOrdersURL(5, 6, 7), 'https://esi.evetech.net/v1/markets/5/orders/?type_id=6&page=7&order_type=all'],
+        [EVE.getMarketOrdersUrl(5, 6, 7, 'buy'), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=buy&page=7&type_id=6'],
+        [EVE.getMarketOrdersUrl(5, 6, 7, 'sell'), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=sell&page=7&type_id=6'],
+        [EVE.getMarketOrdersUrl(5, 6, 7, 'all'), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=all&page=7&type_id=6'],
+        [EVE.getMarketOrdersUrl(5, 6, 7), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=all&page=7&type_id=6'],
+
+        [EVE.getMarketHistoryUrl(5, 6), 'https://esi.evetech.net/v1/markets/5/history/?type_id=6'],
 
         [EVE.getStatusUrl(), 'https://esi.evetech.net/v1/status/'],
 
-        [EVE.getUniverseRegions(), 'https://esi.evetech.net/v1/universe/regions/'],
+        [EVE.getUniverseCategoryUrl(5), 'https://esi.evetech.net/v1/universe/categories/5/'],
+        [EVE.getUniverseCategoriesUrl(), 'https://esi.evetech.net/v1/universe/categories/'],
+        [EVE.getUniverseGroupUrl(5), 'https://esi.evetech.net/v1/universe/groups/5/'],
+        [EVE.getUniverseGroupsUrl(), 'https://esi.evetech.net/v1/universe/groups/'],
         [EVE.getUniverseNamesUrl(), 'https://esi.evetech.net/v2/universe/names/'],
-
-        [EVE.getUniverseCategoriesUrl(5), 'https://esi.evetech.net/v1/universe/categories/5/'],
-        [EVE.getUniverseGroupsUrl(5), 'https://esi.evetech.net/v1/universe/groups/5/'],
-        [EVE.getUniverseStructuresUrl(5), 'https://esi.evetech.net/v2/universe/structures/5/'],
-        [EVE.getUniverseTypesUrl(5), 'https://esi.evetech.net/v3/universe/types/5/'],
+        [EVE.getUniverseRegionsUrl(), 'https://esi.evetech.net/v1/universe/regions/'],
+        [EVE.getUniverseStructureUrl(5), 'https://esi.evetech.net/v2/universe/structures/5/'],
+        [EVE.getUniverseStructuresUrl(), 'https://esi.evetech.net/v2/universe/structures/'],
+        [EVE.getUniverseSystemsUrl(), 'https://esi.evetech.net/v1/universe/systems/'],
+        [EVE.getUniverseTypeUrl(5), 'https://esi.evetech.net/v3/universe/types/5/'],
+        [EVE.getUniverseTypesUrl(5), 'https://esi.evetech.net/v1/universe/types/?page=5'],
 
     ])('get URL %p', (url, expected) => {
         expect(url).toEqual(expected);

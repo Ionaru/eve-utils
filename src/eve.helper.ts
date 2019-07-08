@@ -1,3 +1,7 @@
+interface IQueryParams {
+    [key: string]: string | number;
+}
+
 /**
  * Several static helper functions for the EVE Online ESI.
  */
@@ -277,14 +281,25 @@ export class EVE {
         },
     });
 
-    public static constructESIURL(version: number | string, ...path: Array<string | number>): string {
+    public static constructESIUrl(version: number | string, path: Array<string | number>, params?: IQueryParams): string {
         let url = `${EVE.ESIURL}/v${version}/`;
+
         if (path.length) {
             url += `${path.join('/')}/`;
         }
 
+        if (params) {
+            const paramKeys = Object.keys(params);
+            if (paramKeys.length) {
+                url += '?';
+                url += paramKeys.map((key) => `${key}=${params[key]}`).join('&');
+            }
+        }
+
         return url;
     }
+
+    // SDE
 
     public static getInvTypeMaterialsUrl() {
         return `${EVE.SDEURL}/invTypeMaterials.json`;
@@ -306,81 +321,147 @@ export class EVE {
         return `${EVE.SDEURL}/industryActivitySkills.json`;
     }
 
+    // Character
+
     public static getCharacterUrl(characterId: number) {
-        return EVE.constructESIURL(4, 'characters', characterId);
+        // ICharacterData
+        return EVE.constructESIUrl(4, ['characters', characterId]);
     }
 
     public static getCharacterIndustryJobsUrl(characterId: number) {
-        return EVE.constructESIURL(1, 'characters', characterId, 'industry', 'jobs');
+        // ICharacterIndustryJobsData
+        return EVE.constructESIUrl(1, ['characters', characterId, 'industry', 'jobs']);
     }
 
     public static getCharacterBlueprintsUrl(characterId: number) {
-        return EVE.constructESIURL(2, 'characters', characterId, 'blueprints');
-    }
-
-    public static getStatusUrl() {
-        return EVE.constructESIURL(1, 'status');
-    }
-
-    public static getUniverseNamesUrl() {
-        return EVE.constructESIURL(2, 'universe', 'names');
-    }
-
-    public static getCharacterShipUrl(characterId: number) {
-        return EVE.constructESIURL(1, 'characters', characterId, 'ship');
-    }
-
-    public static getUniverseCategoriesUrl(categoryId: number) {
-        return EVE.constructESIURL(1, 'universe', 'categories', categoryId);
-    }
-
-    public static getMarketGroupsUrl() {
-        return EVE.constructESIURL(1, 'markets', 'groups');
-    }
-
-    public static getMarketOrdersURL(regionId: number, typeId: number, page: number, orderType: 'buy' | 'sell' | 'all' = 'all') {
-        let url = EVE.constructESIURL(1, 'markets', regionId, 'orders');
-        url += `?type_id=${typeId}&page=${page}&order_type=${orderType}`;
-        return url;
-    }
-
-    public static getUniverseRegions() {
-        return EVE.constructESIURL(1, 'universe', 'regions');
-    }
-
-    public static getMarketGroupUrl(groupId: number) {
-        return EVE.constructESIURL(1, 'markets', 'groups', groupId);
-    }
-
-    public static getUniverseGroupsUrl(groupId: number) {
-        return EVE.constructESIURL(1, 'universe', 'groups', groupId);
-    }
-
-    public static getUniverseStructuresUrl(structureId: number) {
-        return EVE.constructESIURL(2, 'universe', 'structures', structureId);
+        // ICharacterBlueprintsData
+        return EVE.constructESIUrl(2, ['characters', characterId, 'blueprints']);
     }
 
     public static getCharacterAttributesUrl(characterId: number) {
-        return EVE.constructESIURL(1, 'characters', characterId, 'attributes');
+        // ICharacterAttributesData
+        return EVE.constructESIUrl(1, ['characters', characterId, 'attributes']);
     }
 
     public static getCharacterSkillQueueUrl(characterId: number) {
-        return EVE.constructESIURL(2, 'characters', characterId, 'skillqueue');
+        // ICharacterSkillQueueData
+        return EVE.constructESIUrl(2, ['characters', characterId, 'skillqueue']);
     }
 
     public static getCharacterSkillsUrl(characterId: number) {
-        return EVE.constructESIURL(4, 'characters', characterId, 'skills');
+        // ICharacterSkillsData
+        return EVE.constructESIUrl(4, ['characters', characterId, 'skills']);
     }
 
     public static getCharacterWalletUrl(characterId: number) {
-        return EVE.constructESIURL(1, 'characters', characterId, 'wallet');
+        // number
+        return EVE.constructESIUrl(1, ['characters', characterId, 'wallet']);
     }
 
     public static getCharacterWalletJournalUrl(characterId: number) {
-        return EVE.constructESIURL(6, 'characters', characterId, 'wallet', 'journal');
+        // ICharacterWalletJournalData
+        return EVE.constructESIUrl(6, ['characters', characterId, 'wallet', 'journal']);
     }
 
-    public static getUniverseTypesUrl(typeId: number) {
-        return EVE.constructESIURL(3, 'universe', 'types', typeId);
+    public static getCharacterShipUrl(characterId: number) {
+        // ICharacterShipData
+        return EVE.constructESIUrl(1, ['characters', characterId, 'ship']);
+    }
+
+    // Market
+
+    public static getMarketGroupUrl(groupId: number) {
+        // MarketGroupsData
+        return EVE.constructESIUrl(1, ['markets', 'groups', groupId]);
+    }
+
+    public static getMarketGroupsUrl() {
+        // number[]
+        return EVE.constructESIUrl(1, ['markets', 'groups']);
+    }
+
+    public static getMarketHistoryUrl(regionId: number, typeId: number) {
+        // IMarketHistoryData
+        return EVE.constructESIUrl(
+            1,
+            ['markets', regionId, 'history'],
+            {
+                type_id: typeId,
+            },
+        );
+    }
+
+    public static getMarketOrdersUrl(regionId: number, typeId: number, page: number, orderType: 'buy' | 'sell' | 'all' = 'all') {
+        // IMarketOrdersData
+        return EVE.constructESIUrl(
+            1,
+            ['markets', regionId, 'orders'],
+            {
+                order_type: orderType,
+                page,
+                type_id: typeId,
+            },
+        );
+    }
+
+    // Universe
+
+    public static getUniverseGroupUrl(groupId: number) {
+        // IUniverseGroupData
+        return EVE.constructESIUrl(1, ['universe', 'groups', groupId]);
+    }
+
+    public static getUniverseGroupsUrl() {
+        // number[]
+        return EVE.constructESIUrl(1, ['universe', 'groups']);
+    }
+
+    public static getUniverseStructureUrl(structureId: number) {
+        // IUniverseStructureData
+        return EVE.constructESIUrl(2, ['universe', 'structures', structureId]);
+    }
+
+    public static getUniverseStructuresUrl() {
+        return EVE.constructESIUrl(2, ['universe', 'structures']);
+    }
+
+    public static getUniverseTypeUrl(typeId: number) {
+        // IUniverseTypeData
+        return EVE.constructESIUrl(3, ['universe', 'types', typeId]);
+    }
+
+    public static getUniverseTypesUrl(page: number) {
+        // number[]
+        return EVE.constructESIUrl(1, ['universe', 'types'], {page});
+    }
+
+    public static getUniverseNamesUrl() {
+        // IUniverseNamesData
+        return EVE.constructESIUrl(2, ['universe', 'names']);
+    }
+
+    public static getUniverseCategoryUrl(categoryId: number) {
+        // IUniverseCategoryData
+        return EVE.constructESIUrl(1, ['universe', 'categories', categoryId]);
+    }
+
+    public static getUniverseCategoriesUrl() {
+        // number[]
+        return EVE.constructESIUrl(1, ['universe', 'categories']);
+    }
+
+    public static getUniverseRegionsUrl() {
+        // number[]
+        return EVE.constructESIUrl(1, ['universe', 'regions']);
+    }
+
+    public static getUniverseSystemsUrl() {
+        // number[]
+        return EVE.constructESIUrl(1, ['universe', 'systems']);
+    }
+
+    public static getStatusUrl() {
+        // IStatusData
+        return EVE.constructESIUrl(1, ['status']);
     }
 }

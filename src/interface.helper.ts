@@ -14,23 +14,39 @@ export interface IMarketOrdersDataUnit {
     range: string;
 }
 
-export interface IUniverseTypesData {
-    capacity: number;
+export interface IUniverseTypeData {
+    capacity?: number;
+
     description: string;
-    dogma_attributes: IDogmaAttributes[];
-    dogma_effects: IDogmaEffects[];
-    graphic_id: number;
+
+    dogma_attributes?: IDogmaAttributes[];
+
+    dogma_effects?: IDogmaEffects[];
+
+    graphic_id?: number;
+
     group_id: number;
-    icon_id: number;
-    market_group_id: number;
-    mass: number;
+
+    icon_id?: number;
+
+    // This only exists for types that can be put on the market.
+    market_group_id?: number;
+
+    mass?: number;
+
     name: string;
-    packaged_volume: number;
-    portion_size: number;
+
+    packaged_volume?: number;
+
+    portion_size?: number;
+
     published: boolean;
-    radius: number;
+
+    radius?: number;
+
     type_id: number;
-    volume: number;
+
+    volume?: number;
 }
 
 export interface IDogmaAttributes {
@@ -41,6 +57,26 @@ export interface IDogmaAttributes {
 export interface IDogmaEffects {
     effect_id: number;
     is_default: boolean;
+}
+
+export interface IMarketHistoryData {
+    // Date of the historic data
+    date: string;
+
+    // Amount of completed transactions
+    order_count: number;
+
+    // Amount of items traded hands
+    volume: number;
+
+    // ??
+    highest: number;
+
+    // Average price of the item during the day
+    average: number;
+
+    // ??
+    lowest: number;
 }
 
 export type IUniverseNamesData = IUniverseNamesDataUnit[];
@@ -57,14 +93,14 @@ export interface ICharacterShipData {
     ship_type_id: number;
 }
 
-export interface IUniverseCategoriesData {
+export interface IUniverseCategoryData {
     category_id: number;
     name: string;
     published: boolean;
     groups: number[];
 }
 
-export interface IUniverseGroupsData {
+export interface IUniverseGroupData {
     group_id: number;
     name: string;
     published: boolean;
@@ -502,7 +538,7 @@ export interface IMarketGroupData {
     description: string;
     market_group_id: number;
     name: string;
-    parent_group_id: number;
+    parent_group_id?: number;
     types: number[];
 }
 

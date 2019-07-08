@@ -4,7 +4,25 @@ All notable changes to the eve-utils project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<!--## [Unreleased]-->
+## [Unreleased]
+### BREAKING CHANGES
+- Renamed constructESIURL to constructESIUrl.
+- Changed constructESIUrl to accept query parameters, path arguments must now by passed as an array.
+- Fixed multiple mistakes in ESI typings.
+- Renamed getMarketOrdersURL to getMarketOrdersUrl.
+- Renamed getUniverseRegions to getUniverseRegionsUrl.
+- Renamed getUniverseCategoriesUrl to getUniverseCategoryUrl.
+- Renamed getUniverseGroupsUrl to getUniverseGroupUrl.
+- Renamed getUniverseStructuresUrl to getUniverseStructureUrl.
+- Renamed getUniverseTypesUrl to getUniverseTypeUrl.
+
+### Added
+- New getUniverseGroupsUrl that fetches the list of groups.
+- New getUniverseCategoriesUrl that fetches the list of categories.
+- New getUniverseStructuresUrl that fetches the list of structures.
+- New getUniverseTypesUrl that fetches the list of types.
+- New getUniverseSystemsUrl that fetches the list of systems.
+
 ## [3.2.0] - 2019-07-01
 ### Added
 - /v4/characters/{id} URL and typings.
