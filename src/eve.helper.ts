@@ -45,8 +45,8 @@ export class EVE {
     });
 
     public static readonly gasses = Object.freeze({
-        'ALL': Object.values(EVE.gas),
-        'Booster Gas Clouds': [
+        all: Object.values(EVE.gas),
+        boosterGasClouds: [
             EVE.gas['Amber Cytoserocin'],
             EVE.gas['Amber Mykoserocin'],
             EVE.gas['Azure Cytoserocin'],
@@ -64,7 +64,7 @@ export class EVE {
             EVE.gas['Viridian Cytoserocin'],
             EVE.gas['Viridian Mykoserocin'],
         ],
-        'Fullerenes': [
+        fullerenes: [
             EVE.gas['Fullerite-C28'],
             EVE.gas['Fullerite-C32'],
             EVE.gas['Fullerite-C50'],
@@ -186,28 +186,7 @@ export class EVE {
     /* tslint:enable:object-literal-sort-keys */
 
     public static readonly ores = Object.freeze({
-        all: [
-            // Base, 5%, 10%, 15% (Moon)
-            // HighSec Ores
-            EVE.ore.veldspar, EVE.ore.concentratedVeldspar, EVE.ore.denseVeldspar, EVE.ore.stableVeldspar,
-            EVE.ore.scordite, EVE.ore.condensedScordite, EVE.ore.massiveScordite, EVE.ore.glossyScordite,
-            EVE.ore.pyroxeres, EVE.ore.solidPyroxeres, EVE.ore.viscousPyroxeres, EVE.ore.opulentPyroxeres,
-            EVE.ore.plagioclase, EVE.ore.azurePlagioclase, EVE.ore.richPlagioclase, EVE.ore.sparklingPlagioclase,
-            EVE.ore.omber, EVE.ore.silveryOmber, EVE.ore.goldenOmber, EVE.ore.platinoidOmber,
-            EVE.ore.kernite, EVE.ore.luminousKernite, EVE.ore.fieryKernite, EVE.ore.resplendantKernite,
-            // LowSec Ores
-            EVE.ore.jaspet, EVE.ore.pureJaspet, EVE.ore.pristineJaspet, EVE.ore.immaculateJaspet,
-            EVE.ore.hemorphite, EVE.ore.vividHemorphite, EVE.ore.radiantHemorphite, EVE.ore.scintillatingHemorphite,
-            EVE.ore.hedbergite, EVE.ore.vitricHedbergite, EVE.ore.glazedHedbergite, EVE.ore.lustrousHedbergite,
-            // NullSec Ores
-            EVE.ore.gneiss, EVE.ore.iridescentGneiss, EVE.ore.prismaticGneiss, EVE.ore.brilliantGneiss,
-            EVE.ore.darkOchre, EVE.ore.onyxOchre, EVE.ore.obsidianOchre, EVE.ore.jetOchre,
-            EVE.ore.spodumain, EVE.ore.brightSpodumain, EVE.ore.gleamingSpodumain, EVE.ore.dazzlingSpodumain,
-            EVE.ore.crokite, EVE.ore.sharpCrokite, EVE.ore.crystallineCrokite, EVE.ore.pellucidCrokite,
-            EVE.ore.bistot, EVE.ore.triclinicBistot, EVE.ore.monoclinicBistot, EVE.ore.cubicBistot,
-            EVE.ore.arkonor, EVE.ore.crimsonArkonor, EVE.ore.primeArkonor, EVE.ore.flawlessArkonor,
-            EVE.ore.mercoxit, EVE.ore.magmaMercoxit, EVE.ore.vitreousMercoxit,
-        ],
+        all: Object.values(EVE.ore),
         highSec: {
             base: [
                 EVE.ore.veldspar,

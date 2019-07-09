@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed getUniverseGroupsUrl to getUniverseGroupUrl.
 - Renamed getUniverseStructuresUrl to getUniverseStructureUrl.
 - Renamed getUniverseTypesUrl to getUniverseTypeUrl.
+- Renamed gasses object keys to be consistent with ores.
 
 ### Added
 - New getUniverseGroupsUrl that fetches the list of groups.

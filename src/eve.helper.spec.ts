@@ -71,6 +71,11 @@ describe('Ores & minerals', () => {
         expect(EVE.ores.highSec.beltVariants).toContain(EVE.ore.concentratedVeldspar);
         expect(EVE.ores.highSec.beltVariants).toContain(EVE.ore.denseVeldspar);
         expect(EVE.ores.highSec.moonVariants).toContain(EVE.ore.stableVeldspar);
+
+        expect(EVE.ores.all).toContain(EVE.ore.veldspar);
+        expect(EVE.ores.all).toContain(EVE.ore.concentratedVeldspar);
+        expect(EVE.ores.all).toContain(EVE.ore.denseVeldspar);
+        expect(EVE.ores.all).toContain(EVE.ore.stableVeldspar);
     });
 
     test('minerals', () => {
@@ -78,8 +83,8 @@ describe('Ores & minerals', () => {
     });
 
     test('gasses', () => {
-        expect(EVE.gasses.Fullerenes).toContain(EVE.gas['Fullerite-C72']);
-        expect(EVE.gasses['Booster Gas Clouds']).toContain(EVE.gas['Viridian Cytoserocin']);
-        expect(EVE.gasses.ALL).toContain(EVE.gas['Gamboge Cytoserocin']);
+        expect(EVE.gasses.fullerenes).toContain(EVE.gas['Fullerite-C72']);
+        expect(EVE.gasses.boosterGasClouds).toContain(EVE.gas['Viridian Cytoserocin']);
+        expect(EVE.gasses.all).toContain(EVE.gas['Gamboge Cytoserocin']);
     });
 });
