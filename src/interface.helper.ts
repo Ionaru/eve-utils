@@ -59,7 +59,9 @@ export interface IDogmaEffects {
     is_default: boolean;
 }
 
-export interface IMarketHistoryData {
+export type IMarketHistoryData = IMarketHistoryDataUnit[];
+
+export interface IMarketHistoryDataUnit {
     // Date of the historic data
     date: string;
 
