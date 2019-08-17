@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - /v2/characters/{character_id}/assets/locations/ URL and typings.
 - /v1/characters/{character_id}/assets/names/ URL and typings.
 
+## [4.0.1] - 2019-07-10
+### Fixed
+- MarketHistory typings which is a list by default.
+
 ## [4.0.0] - 2019-07-09
 ### BREAKING CHANGES
 - Renamed constructESIURL to constructESIUrl.
@@ -62,7 +66,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial codebase, most copied from <https://github.com/Ionaru/evie>
 - Setup for this project
 
-[Unreleased]: https://github.com/Ionaru/eve-utils/compare/4.0.0...HEAD
+[Unreleased]: https://github.com/Ionaru/eve-utils/compare/4.0.1...HEAD
+[4.0.1]: https://github.com/Ionaru/eve-utils/compare/4.0.0...4.0.1
 [4.0.0]: https://github.com/Ionaru/eve-utils/compare/3.2.0...4.0.0
 [3.2.0]: https://github.com/Ionaru/eve-utils/compare/3.1.1...3.2.0
 [3.1.1]: https://github.com/Ionaru/eve-utils/compare/3.1.0...3.1.1
