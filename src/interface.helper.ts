@@ -572,3 +572,36 @@ export interface ICharacterData {
     // The individual title of the character
     title?: string;
 }
+
+export type ICharacterAssetsData = ICharacterAssetsDataUnit[];
+
+export interface ICharacterAssetsDataUnit {
+    is_blueprint_copy?: boolean;
+    is_singleton: boolean;
+    item_id: number;
+    location_flag: string;
+    location_id: number;
+    location_type: number;
+    quantity: number;
+    type_id: number;
+}
+
+export interface ICharacterAssetsLocationsPosition {
+    x: number;
+    y: number;
+    z: number;
+}
+
+export type ICharacterAssetsLocationsData = ICharacterAssetsLocationsDataUnit[];
+
+export interface ICharacterAssetsLocationsDataUnit {
+    item_id: number;
+    position: ICharacterAssetsLocationsPosition;
+}
+
+export type ICharacterAssetsNamesData = ICharacterAssetsNamesDataUnit[];
+
+export interface ICharacterAssetsNamesDataUnit {
+    item_id: number;
+    name: string;
+}

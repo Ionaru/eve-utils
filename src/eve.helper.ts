@@ -307,6 +307,32 @@ export class EVE {
         return EVE.constructESIUrl(4, ['characters', characterId]);
     }
 
+    /**
+     * Return a list of the characters assets.
+     * API return type: ICharacterAssetsData
+     */
+    public static getCharacterAssetsUrl(characterId: number) {
+        return EVE.constructESIUrl(3, ['characters', characterId, 'assets']);
+    }
+
+    /**
+     * Return locations for a set of item ids, which you can get from character assets endpoint.
+     * Coordinates for items in hangars or stations are set to (0,0,0).
+     * API return type: ICharacterAssetsLocationsData
+     */
+    public static getCharacterAssetsLocationsUrl(characterId: number) {
+        return EVE.constructESIUrl(2, ['characters', characterId, 'assets', 'locations']);
+    }
+
+    /**
+     * Return names for a set of item ids, which you can get from character assets endpoint.
+     * Typically used for items that can customize names, like containers or ships.
+     * API return type: ICharacterAssetsNamesData
+     */
+    public static getCharacterAssetsNamesUrl(characterId: number) {
+        return EVE.constructESIUrl(1, ['characters', characterId, 'assets', 'names']);
+    }
+
     public static getCharacterIndustryJobsUrl(characterId: number) {
         // ICharacterIndustryJobsData
         return EVE.constructESIUrl(1, ['characters', characterId, 'industry', 'jobs']);
