@@ -308,11 +308,11 @@ export class EVE {
     }
 
     /**
-     * Return a list of the characters assets.
+     * Return a list of the characters assets (paginated).
      * API return type: ICharacterAssetsData
      */
-    public static getCharacterAssetsUrl(characterId: number) {
-        return EVE.constructESIUrl(3, ['characters', characterId, 'assets']);
+    public static getCharacterAssetsUrl(characterId: number, page: number) {
+        return EVE.constructESIUrl(3, ['characters', characterId, 'assets'], {page});
     }
 
     /**
