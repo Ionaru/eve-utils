@@ -338,9 +338,13 @@ export class EVE {
         return EVE.constructESIUrl(1, ['characters', characterId, 'industry', 'jobs']);
     }
 
-    public static getCharacterBlueprintsUrl(characterId: number) {
+    /**
+     * Return a list of blueprints the character owns.
+     * API return type: ICharacterBlueprintsData
+     */
+    public static getCharacterBlueprintsUrl(characterId: number, page: number) {
         // ICharacterBlueprintsData
-        return EVE.constructESIUrl(2, ['characters', characterId, 'blueprints']);
+        return EVE.constructESIUrl(2, ['characters', characterId, 'blueprints'], {page});
     }
 
     public static getCharacterAttributesUrl(characterId: number) {
