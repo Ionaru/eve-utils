@@ -471,6 +471,11 @@ export class EVE {
         return EVE.constructESIUrl(1, ['universe', 'regions']);
     }
 
+    public static getUniverseSystemUrl(systemId: number) {
+        // IUniverseSystemData
+        return EVE.constructESIUrl(4, ['universe', 'systems', systemId]);
+    }
+
     public static getUniverseSystemsUrl() {
         // number[]
         return EVE.constructESIUrl(1, ['universe', 'systems']);

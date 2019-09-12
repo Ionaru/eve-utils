@@ -76,6 +76,7 @@ describe('URL creators', () => {
         [EVE.getUniverseStructuresUrl(), 'https://esi.evetech.net/v2/universe/structures/'],
         [EVE.getUniverseStationUrl(5), 'https://esi.evetech.net/v2/universe/stations/5/'],
         [EVE.getUniverseSystemsUrl(), 'https://esi.evetech.net/v1/universe/systems/'],
+        [EVE.getUniverseSystemUrl(5), 'https://esi.evetech.net/v4/universe/systems/5/'],
         [EVE.getUniverseTypeUrl(5), 'https://esi.evetech.net/v3/universe/types/5/'],
         [EVE.getUniverseTypesUrl(5), 'https://esi.evetech.net/v1/universe/types/?page=5'],
 

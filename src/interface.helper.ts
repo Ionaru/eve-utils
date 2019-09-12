@@ -537,6 +537,25 @@ export type IUniverseStationServicesType =
     | 'navy-offices'
     | 'security-offices';
 
+export interface IUniverseSystemData {
+    constellation_id: number;
+    name: number;
+    planets?: IUniverseSystemPlanetData;
+    position: IStructurePosition;
+    security_class?: string;
+    security_status: number;
+    star_id?: number;
+    stargates?: number[];
+    stations?: number[];
+    system_id: number;
+}
+
+export interface IUniverseSystemPlanetData {
+    asteroid_belts?: number[];
+    moons?: number[];
+    planet_id: number;
+}
+
 export type IIndustryActivityProductsData = IIndustryActivityProductsDataUnit[];
 
 export interface IIndustryActivityProductsDataUnit {
