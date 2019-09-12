@@ -5,8 +5,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Types for blueprint route location_flag property.
+
 ### Fixed
 - Typings of dates that were incorrectly set as "Date" or "Number".
+
+## [4.1.3] - 2019-08-18
+### Added
+- Forgotten pagination support for /v2/characters/{character_id}/blueprints/.
+- Docstrings for blueprints URL function that describes the API type.
+
+## [4.1.2] - 2019-08-18
+### Added
+- Forgotten pagination support for /v3/characters/{character_id}/assets/.
+
+## [4.1.1] - 2019-08-17
+### Fixed
+- Errors in typings and forgotten string types.
+
+## [4.1.0] - 2019-08-17
+### Added
+- Docstrings for assets URL functions that describe the API type.
+- /v3/characters/{character_id}/assets/ URL and typings.
+- /v2/characters/{character_id}/assets/locations/ URL and typings.
+- /v1/characters/{character_id}/assets/names/ URL and typings.
 
 ## [4.0.1] - 2019-07-10
 ### Fixed
@@ -63,7 +86,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial codebase, most copied from <https://github.com/Ionaru/evie>
 - Setup for this project
 
-[Unreleased]: https://github.com/Ionaru/eve-utils/compare/4.0.1...HEAD
+[Unreleased]: https://github.com/Ionaru/eve-utils/compare/4.1.3...HEAD
+[4.1.3]: https://github.com/Ionaru/eve-utils/compare/4.1.2...4.1.3
+[4.1.2]: https://github.com/Ionaru/eve-utils/compare/4.1.1...4.1.2
+[4.1.1]: https://github.com/Ionaru/eve-utils/compare/4.1.0...4.1.1
+[4.1.0]: https://github.com/Ionaru/eve-utils/compare/4.0.1...4.1.0
 [4.0.1]: https://github.com/Ionaru/eve-utils/compare/4.0.0...4.0.1
 [4.0.0]: https://github.com/Ionaru/eve-utils/compare/3.2.0...4.0.0
 [3.2.0]: https://github.com/Ionaru/eve-utils/compare/3.1.1...3.2.0
