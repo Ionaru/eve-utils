@@ -5,7 +5,6 @@ describe('URL tests', () => {
     test.each([
 
         [[1, []], 'https://esi.evetech.net/v1/'],
-        [[1, []], 'https://esi.evetech.net/v1/'],
         [[2, ['thing']], 'https://esi.evetech.net/v2/thing/'],
         [[3, ['thing', 'other']], 'https://esi.evetech.net/v3/thing/other/'],
         [[4, ['thing', 'other', 6]], 'https://esi.evetech.net/v4/thing/other/6/'],
@@ -13,6 +12,20 @@ describe('URL tests', () => {
     ])('constructESIURL %j', (parameters, expected) => {
         expect(EVE.constructESIUrl(parameters[0] as number, parameters[1] as string[], {})).toEqual(expected);
         expect(EVE.constructESIUrl(parameters[0] as number, parameters[1] as string[])).toEqual(expected);
+    });
+
+    test('constructESIURL advanced', () => {
+        const url1 = EVE.constructESIUrl(1, [], {param1: 1});
+        expect(url1).toEqual('https://esi.evetech.net/v1/?param1=1');
+
+        const url2 = EVE.constructESIUrl(1, ['thing'], {param1: 1});
+        expect(url2).toEqual('https://esi.evetech.net/v1/thing/?param1=1');
+
+        const url3 = EVE.constructESIUrl(1, [], {param1: 1, param2: 'something'});
+        expect(url3).toEqual('https://esi.evetech.net/v1/?param1=1&param2=something');
+
+        const url4 = EVE.constructESIUrl(1, ['thing'], {param1: 1, param2: 'something'});
+        expect(url4).toEqual('https://esi.evetech.net/v1/thing/?param1=1&param2=something');
     });
 });
 
@@ -31,7 +44,9 @@ describe('URL creators', () => {
         [EVE.getCharacterSkillsUrl(5), 'https://esi.evetech.net/v4/characters/5/skills/'],
         [EVE.getCharacterWalletJournalUrl(5), 'https://esi.evetech.net/v6/characters/5/wallet/journal/'],
         [EVE.getCharacterWalletUrl(5), 'https://esi.evetech.net/v1/characters/5/wallet/'],
-        [EVE.getCharacterIndustryJobsUrl(5), 'https://esi.evetech.net/v1/characters/5/industry/jobs/'],
+        [EVE.getCharacterIndustryJobsUrl(5), 'https://esi.evetech.net/v1/characters/5/industry/jobs/?include_completed=false'],
+        [EVE.getCharacterIndustryJobsUrl(5, false), 'https://esi.evetech.net/v1/characters/5/industry/jobs/?include_completed=false'],
+        [EVE.getCharacterIndustryJobsUrl(5, true), 'https://esi.evetech.net/v1/characters/5/industry/jobs/?include_completed=true'],
 
         [EVE.getIndustryActivityMaterialsUrl(), 'https://sde.zzeve.com/industryActivityMaterials.json'],
         [EVE.getIndustryActivityProductsUrl(), 'https://sde.zzeve.com/industryActivityProducts.json'],
@@ -63,7 +78,7 @@ describe('URL creators', () => {
         [EVE.getUniverseTypeUrl(5), 'https://esi.evetech.net/v3/universe/types/5/'],
         [EVE.getUniverseTypesUrl(5), 'https://esi.evetech.net/v1/universe/types/?page=5'],
 
-    ])('get URL %p', (url, expected) => {
+    ])('URL creator %p', (url, expected) => {
         expect(url).toEqual(expected);
     });
 });

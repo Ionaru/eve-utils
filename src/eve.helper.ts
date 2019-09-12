@@ -333,9 +333,11 @@ export class EVE {
         return EVE.constructESIUrl(1, ['characters', characterId, 'assets', 'names']);
     }
 
-    public static getCharacterIndustryJobsUrl(characterId: number) {
+    public static getCharacterIndustryJobsUrl(characterId: number, includeCompleted = false) {
         // ICharacterIndustryJobsData
-        return EVE.constructESIUrl(1, ['characters', characterId, 'industry', 'jobs']);
+        return EVE.constructESIUrl(1, ['characters', characterId, 'industry', 'jobs'], {
+            include_completed: includeCompleted.toString(),
+        });
     }
 
     /**
