@@ -436,6 +436,11 @@ export class EVE {
         return EVE.constructESIUrl(2, ['universe', 'structures']);
     }
 
+    public static getUniverseStationUrl(stationId: number) {
+        // IUniverseStationData
+        return EVE.constructESIUrl(2, ['universe', 'stations', stationId]);
+    }
+
     public static getUniverseTypeUrl(typeId: number) {
         // IUniverseTypeData
         return EVE.constructESIUrl(3, ['universe', 'types', typeId]);

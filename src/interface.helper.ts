@@ -479,6 +479,64 @@ export interface IUniverseStructureData {
     type_id?: number;
 }
 
+export interface IUniverseStationData {
+
+    max_dockable_ship_volume: number;
+
+    name: string;
+
+    office_rental_cost: number;
+
+    // ID of the corporation that controls this station
+    owner?: number;
+
+    position: IStructurePosition;
+
+    race_id?: number;
+
+    reprocessing_efficiency: number;
+
+    reprocessing_stations_take: number;
+
+    services: IUniverseStationServicesType[];
+
+    station_id: number;
+
+    // The solar system this station is in
+    system_id: number;
+
+    type_id: number;
+}
+
+export type IUniverseStationServicesType =
+    'bounty-missions'
+    | 'assasination-missions'
+    | 'courier-missions'
+    | 'interbus'
+    | 'reprocessing-plant'
+    | 'refinery'
+    | 'market'
+    | 'black-market'
+    | 'stock-exchange'
+    | 'cloning'
+    | 'surgery'
+    | 'dna-therapy'
+    | 'repair-facilities'
+    | 'factory'
+    | 'labratory'
+    | 'gambling'
+    | 'fitting'
+    | 'paintshop'
+    | 'news'
+    | 'storage'
+    | 'insurance'
+    | 'docking'
+    | 'office-rental'
+    | 'jump-clone-facility'
+    | 'loyalty-point-store'
+    | 'navy-offices'
+    | 'security-offices';
+
 export type IIndustryActivityProductsData = IIndustryActivityProductsDataUnit[];
 
 export interface IIndustryActivityProductsDataUnit {

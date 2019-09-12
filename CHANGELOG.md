@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- includeCompleted flag for v1/characters/{character_id}/industry/jobs
+- includeCompleted flag for v1/characters/{character_id}/industry/jobs.
+- /v2/universe/stations/{station_id}}/ URL and typings.
 
 ## [4.2.0] - 2019-09-12
 ### Added
