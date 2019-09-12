@@ -152,13 +152,13 @@ export interface IStatusData {
 
 export interface ICharacterAttributesData {
     // Neural remapping cooldown after a character uses remap accrued over time
-    accrued_remap_cooldown_date?: Date;
+    accrued_remap_cooldown_date?: string;
 
     // Number of available bonus character neural remaps
     bonus_remaps?: number;
 
     // Datetime of last neural remap, including usage of bonus remaps
-    last_remap_date?: Date;
+    last_remap_date?: string;
 
     charisma: number;
     intelligence: number;
@@ -551,7 +551,7 @@ export interface ICharacterData {
     ancestry_id?: number;
 
     // Creation date of the character
-    birthday: number;
+    birthday: string;
 
     bloodline_id: number;
 
