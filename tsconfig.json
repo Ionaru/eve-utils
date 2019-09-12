@@ -27,12 +27,7 @@
             "./node_modules/@types"
         ]
     },
-    "exclude": [
-        "./node_modules",
-        "./src/__mocks__",
-        "./src/**/*.spec.ts"
-    ],
-    "include": [
-        "./src/**/*.ts"
+    "files": [
+        "src/index.ts"
     ]
 }
