@@ -539,7 +539,7 @@ export type IUniverseStationServicesType =
 
 export interface IUniverseSystemData {
     constellation_id: number;
-    name: number;
+    name: string;
     planets?: IUniverseSystemPlanetData;
     position: IStructurePosition;
     security_class?: string;
