@@ -1,6 +1,12 @@
+import { ISearchCategories } from './interface.helper';
+
 interface IQueryParams {
     [key: string]: string | number;
 }
+
+type ArrayOneOrMore<T> = {
+    0: T;
+} & T[];
 
 /**
  * Several static helper functions for the EVE Online ESI.
@@ -11,6 +17,11 @@ export class EVE {
     public static readonly SDEURL = 'https://sde.zzeve.com';
 
     public static readonly skillCategoryId = 16;
+
+    public static readonly searchCategories: ISearchCategories[] = [
+        'agent', 'alliance', 'character', 'constellation', 'corporation', 'faction',
+        'inventory_type', 'region', 'solar_system', 'station',
+    ];
 
     public static readonly gas = Object.freeze({
         'Fullerite-C28': 30375,
@@ -484,5 +495,16 @@ export class EVE {
     public static getStatusUrl() {
         // IStatusData
         return EVE.constructESIUrl(1, ['status']);
+    }
+
+    /**
+     * Return search data.
+     * API return type: ISearchData
+     */
+    public static getSearchUrl(search: string, searchCategories?: ArrayOneOrMore<ISearchCategories>) {
+        return EVE.constructESIUrl(2, ['search'], {
+            categories: (searchCategories || EVE.searchCategories).join(','),
+            search,
+        });
     }
 }

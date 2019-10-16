@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - /v4/universe/systems/{system_id}/ URL and typings.
+- /v2/search/ URL and typings.
 
 ## [4.3.0] - 2019-09-13
 ### Added

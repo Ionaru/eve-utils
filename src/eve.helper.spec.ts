@@ -1,3 +1,5 @@
+/* tslint:disable:max-line-length */
+
 import { EVE } from './';
 
 describe('URL tests', () => {
@@ -65,6 +67,10 @@ describe('URL creators', () => {
         [EVE.getMarketHistoryUrl(5, 6), 'https://esi.evetech.net/v1/markets/5/history/?type_id=6'],
 
         [EVE.getStatusUrl(), 'https://esi.evetech.net/v1/status/'],
+
+        [EVE.getSearchUrl('something'), 'https://esi.evetech.net/v2/search/?categories=agent,alliance,character,constellation,corporation,faction,inventory_type,region,solar_system,station&search=something'],
+        [EVE.getSearchUrl('something', ['region']), 'https://esi.evetech.net/v2/search/?categories=region&search=something'],
+        [EVE.getSearchUrl('something', ['region', 'faction']), 'https://esi.evetech.net/v2/search/?categories=region,faction&search=something'],
 
         [EVE.getUniverseCategoryUrl(5), 'https://esi.evetech.net/v1/universe/categories/5/'],
         [EVE.getUniverseCategoriesUrl(), 'https://esi.evetech.net/v1/universe/categories/'],

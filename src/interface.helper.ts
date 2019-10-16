@@ -848,3 +848,28 @@ export type ICharacterBlueprintsLocationFlag =
     | 'FighterTube3'
     | 'FighterTube4'
     | 'Module';
+
+export type ISearchCategories =
+    'agent'
+    | 'alliance'
+    | 'character'
+    | 'constellation'
+    | 'corporation'
+    | 'faction'
+    | 'inventory_type'
+    | 'region'
+    | 'solar_system'
+    | 'station';
+
+export interface ISearchData {
+    agent?: number[];
+    alliance?: number[];
+    character?: number[];
+    constellation?: number[];
+    corporation?: number[];
+    faction?: number[];
+    inventory_type?: number[];
+    region?: number[];
+    solar_system?: number[];
+    station?: number[];
+}
