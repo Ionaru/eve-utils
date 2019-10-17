@@ -8,6 +8,133 @@ type ArrayOneOrMore<T> = {
     0: T;
 } & T[];
 
+enum Mineral {
+    // noinspection JSUnusedGlobalSymbols
+    tritanium = 34,
+    pyerite = 35,
+    mexallon = 36,
+    isogen = 37,
+    nocxium = 38,
+    zydrine = 39,
+    megacyte = 40,
+    morphite = 11399,
+}
+
+enum Ore {
+    // noinspection JSUnusedGlobalSymbols
+    veldspar = 1230,
+    concentratedVeldspar = 17470,
+    denseVeldspar = 17471,
+    stableVeldspar = 46689,
+
+    scordite = 1228,
+    condensedScordite = 17459,
+    massiveScordite = 17464,
+    glossyScordite = 46687,
+
+    pyroxeres = 1224,
+    solidPyroxeres = 17459,
+    viscousPyroxeres = 17460,
+    opulentPyroxeres = 46686,
+
+    plagioclase = 18,
+    azurePlagioclase = 17455,
+    richPlagioclase = 17456,
+    sparklingPlagioclase = 46685,
+
+    omber = 1227,
+    silveryOmber = 17867,
+    goldenOmber = 17868,
+    platinoidOmber = 46684,
+
+    kernite = 20,
+    luminousKernite = 17452,
+    fieryKernite = 17453,
+    resplendantKernite = 46683,
+
+    jaspet = 1226,
+    pureJaspet = 17448,
+    pristineJaspet = 17449,
+    immaculateJaspet = 46682,
+
+    hemorphite = 1231,
+    vividHemorphite = 17444,
+    radiantHemorphite = 17445,
+    scintillatingHemorphite = 46681,
+
+    hedbergite = 21,
+    vitricHedbergite = 17440,
+    glazedHedbergite = 17441,
+    lustrousHedbergite = 46680,
+
+    gneiss = 1229,
+    iridescentGneiss = 17865,
+    prismaticGneiss = 17866,
+    brilliantGneiss = 46679,
+
+    darkOchre = 1232,
+    onyxOchre = 17436,
+    obsidianOchre = 17437,
+    jetOchre = 46675,
+
+    spodumain = 19,
+    brightSpodumain = 17466,
+    gleamingSpodumain = 17467,
+    dazzlingSpodumain = 46688,
+
+    crokite = 1225,
+    sharpCrokite = 17432,
+    crystallineCrokite = 17433,
+    pellucidCrokite = 46677,
+
+    bistot = 1223,
+    triclinicBistot = 17428,
+    monoclinicBistot = 17429,
+    cubicBistot = 46676,
+
+    arkonor = 22,
+    crimsonArkonor = 17425,
+    primeArkonor = 17426,
+    flawlessArkonor = 46678,
+
+    mercoxit = 11396,
+    magmaMercoxit = 17869,
+    vitreousMercoxit = 17870,
+}
+
+enum Gas {
+    // noinspection JSUnusedGlobalSymbols
+    'Fullerite-C28' = 30375,
+    'Fullerite-C32' = 30376,
+    'Fullerite-C320' = 30377,
+    'Fullerite-C50' = 30370,
+    'Fullerite-C540' = 30378,
+    'Fullerite-C60' = 30371,
+    'Fullerite-C70' = 30372,
+    'Fullerite-C72' = 30373,
+    'Fullerite-C84' = 30374,
+
+    'Amber Cytoserocin' = 25268,
+    'Amber Mykoserocin' = 28694,
+    'Azure Cytoserocin' = 25279,
+    'Azure Mykoserocin' = 28695,
+    'Celadon Cytoserocin' = 25275,
+    'Celadon Mykoserocin' = 28696,
+    'Chartreuse Cytoserocin' = 28630, // Unavailable on market.
+    'Gamboge Cytoserocin' = 28629, // Unavailable on market.
+    'Golden Cytoserocin' = 25273,
+    'Golden Mykoserocin' = 28697,
+    'Hiemal Tricarboxyl Vapor' = 49787, // In Materials - Raw Materials - Standard Ores - Veldspar ?
+    'Lime Cytoserocin' = 25277,
+    'Lime Mykoserocin' = 28698,
+    'Malachite Cytoserocin' = 25276,
+    'Malachite Mykoserocin' = 28699,
+    'Vermillion Cytoserocin' = 25278,
+    'Vermillion Mykoserocin' = 28700,
+    'Viridian Cytoserocin' = 25274,
+    'Viridian Mykoserocin' = 28701,
+}
+
 /**
  * Several static helper functions for the EVE Online ESI.
  */
@@ -18,42 +145,12 @@ export class EVE {
 
     public static readonly skillCategoryId = 16;
 
-    public static readonly searchCategories: ISearchCategories[] = [
+    public static readonly searchCategories = Object.freeze([
         'agent', 'alliance', 'character', 'constellation', 'corporation', 'faction',
         'inventory_type', 'region', 'solar_system', 'station',
-    ];
+    ]);
 
-    public static readonly gas = Object.freeze({
-        'Fullerite-C28': 30375,
-        'Fullerite-C32': 30376,
-        'Fullerite-C320': 30377,
-        'Fullerite-C50': 30370,
-        'Fullerite-C540': 30378,
-        'Fullerite-C60': 30371,
-        'Fullerite-C70': 30372,
-        'Fullerite-C72': 30373,
-        'Fullerite-C84': 30374,
-
-        'Amber Cytoserocin': 25268,
-        'Amber Mykoserocin': 28694,
-        'Azure Cytoserocin': 25279,
-        'Azure Mykoserocin': 28695,
-        'Celadon Cytoserocin': 25275,
-        'Celadon Mykoserocin': 28696,
-        'Chartreuse Cytoserocin': 28630, // Unavailable on market.
-        'Gamboge Cytoserocin': 28629, // Unavailable on market.
-        'Golden Cytoserocin': 25273,
-        'Golden Mykoserocin': 28697,
-        'Hiemal Tricarboxyl Vapor': 49787, // In Materials - Raw Materials - Standard Ores - Veldspar ?
-        'Lime Cytoserocin': 25277,
-        'Lime Mykoserocin': 28698,
-        'Malachite Cytoserocin': 25276,
-        'Malachite Mykoserocin': 28699,
-        'Vermillion Cytoserocin': 25278,
-        'Vermillion Mykoserocin': 28700,
-        'Viridian Cytoserocin': 25274,
-        'Viridian Mykoserocin': 28701,
-    });
+    public static readonly gas = Gas;
 
     public static readonly gasses = Object.freeze({
         all: Object.values(EVE.gas),
@@ -88,18 +185,7 @@ export class EVE {
         ],
     });
 
-    /* tslint:disable:object-literal-sort-keys */
-    public static readonly mineral = Object.freeze({
-        tritanium: 34,
-        pyerite: 35,
-        mexallon: 36,
-        isogen: 37,
-        nocxium: 38,
-        zydrine: 39,
-        megacyte: 40,
-        morphite: 11399,
-    });
-    /* tslint:enable:object-literal-sort-keys */
+    public static readonly mineral = Mineral;
 
     public static readonly minerals = Object.freeze([
         EVE.mineral.tritanium,
@@ -112,89 +198,7 @@ export class EVE {
         EVE.mineral.morphite,
     ]);
 
-    /* tslint:disable:object-literal-sort-keys */
-    public static readonly ore = Object.freeze({
-
-        veldspar: 1230,
-        concentratedVeldspar: 17470,
-        denseVeldspar: 17471,
-        stableVeldspar: 46689,
-
-        scordite: 1228,
-        condensedScordite: 17459,
-        massiveScordite: 17464,
-        glossyScordite: 46687,
-
-        pyroxeres: 1224,
-        solidPyroxeres: 17459,
-        viscousPyroxeres: 17460,
-        opulentPyroxeres: 46686,
-
-        plagioclase: 18,
-        azurePlagioclase: 17455,
-        richPlagioclase: 17456,
-        sparklingPlagioclase: 46685,
-
-        omber: 1227,
-        silveryOmber: 17867,
-        goldenOmber: 17868,
-        platinoidOmber: 46684,
-
-        kernite: 20,
-        luminousKernite: 17452,
-        fieryKernite: 17453,
-        resplendantKernite: 46683,
-
-        jaspet: 1226,
-        pureJaspet: 17448,
-        pristineJaspet: 17449,
-        immaculateJaspet: 46682,
-
-        hemorphite: 1231,
-        vividHemorphite: 17444,
-        radiantHemorphite: 17445,
-        scintillatingHemorphite: 46681,
-
-        hedbergite: 21,
-        vitricHedbergite: 17440,
-        glazedHedbergite: 17441,
-        lustrousHedbergite: 46680,
-
-        gneiss: 1229,
-        iridescentGneiss: 17865,
-        prismaticGneiss: 17866,
-        brilliantGneiss: 46679,
-
-        darkOchre: 1232,
-        onyxOchre: 17436,
-        obsidianOchre: 17437,
-        jetOchre: 46675,
-
-        spodumain: 19,
-        brightSpodumain: 17466,
-        gleamingSpodumain: 17467,
-        dazzlingSpodumain: 46688,
-
-        crokite: 1225,
-        sharpCrokite: 17432,
-        crystallineCrokite: 17433,
-        pellucidCrokite: 46677,
-
-        bistot: 1223,
-        triclinicBistot: 17428,
-        monoclinicBistot: 17429,
-        cubicBistot: 46676,
-
-        arkonor: 22,
-        crimsonArkonor: 17425,
-        primeArkonor: 17426,
-        flawlessArkonor: 46678,
-
-        mercoxit: 11396,
-        magmaMercoxit: 17869,
-        vitreousMercoxit: 17870,
-    });
-    /* tslint:enable:object-literal-sort-keys */
+    public static readonly ore = Ore;
 
     public static readonly ores = Object.freeze({
         all: Object.values(EVE.ore),
