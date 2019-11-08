@@ -390,6 +390,82 @@ export class EVE {
         return EVE.constructESIUrl(1, ['characters', characterId, 'ship']);
     }
 
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Mail/get_characters_character_id_mail
+     * /v1/characters/{character_id}/mail/ -> ICharacterMailsData
+     *
+     * POST
+     * https://esi.evetech.net/ui/?version=_latest#/Mail/post_characters_character_id_mail
+     * /v1/characters/{character_id}/mail/ -> number
+     */
+    public static getCharacterMailsUrl(characterId: number, labels: number[] = [], lastMailId?: number) {
+
+        const params: IQueryParams = {};
+        if (labels.length) {
+            params.labels = labels.join(',');
+        }
+
+        if (lastMailId) {
+            params.last_mail_id = lastMailId;
+        }
+
+        return EVE.constructESIUrl(1, ['characters', characterId, 'mail'], params);
+    }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Mail/get_characters_character_id_mail_mail_id
+     * /v1/characters/{character_id}/mail/{mail_id} -> ICharacterMailData
+     *
+     * PUT
+     * https://esi.evetech.net/ui/?version=_latest#/Mail/put_characters_character_id_mail_mail_id
+     * /v1/characters/{character_id}/mail/{mail_id}/ -> void
+     *
+     * DELETE
+     * https://esi.evetech.net/ui/?version=_latest#/Mail/delete_characters_character_id_mail_mail_id
+     * /v1/characters/{character_id}/mail/{mail_id} -> void
+     */
+    public static getCharacterMailUrl(characterId: number, mailId: number) {
+        return EVE.constructESIUrl(1, ['characters', characterId, 'mail', mailId]);
+    }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Mail/get_characters_character_id_mail_labels
+     * /v3/characters/{character_id}/mail/labels/ -> ICharacterMailLabelsData
+     */
+    public static getCharacterMailLabelsGETUrl(characterId: number) {
+        return EVE.constructESIUrl(3, ['characters', characterId, 'mail', 'labels']);
+    }
+
+    /**
+     * POST
+     * https://esi.evetech.net/ui/?version=_latest#/Mail/put_characters_character_id_mail_mail_id
+     * /v2/characters/{character_id}/mail/labels/ -> number
+     */
+    public static getCharacterMailLabelsPOSTUrl(characterId: number) {
+        return EVE.constructESIUrl(2, ['characters', characterId, 'mail', 'labels']);
+    }
+
+    /**
+     * DELETE
+     * https://esi.evetech.net/ui/?version=_latest#/Mail/delete_characters_character_id_mail_labels_label_id
+     * /v1/characters/{character_id}/mail/labels/{label_id}/ -> void
+     */
+    public static getCharacterMailLabelUrl(characterId: number, labelId: number) {
+        return EVE.constructESIUrl(1, ['characters', characterId, 'mail', 'labels', labelId]);
+    }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Mail/get_characters_character_id_mail_lists
+     * /v1/characters/{character_id}/mail/lists/ -> ICharacterMailListsData
+     */
+    public static getCharacterMailListsUrl(characterId: number) {
+        return EVE.constructESIUrl(1, ['characters', characterId, 'mail', 'lists']);
+    }
+
     // Market
 
     public static getMarketGroupUrl(groupId: number) {

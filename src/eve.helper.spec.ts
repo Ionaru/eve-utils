@@ -50,6 +50,16 @@ describe('URL creators', () => {
         [EVE.getCharacterIndustryJobsUrl(5, false), 'https://esi.evetech.net/v1/characters/5/industry/jobs/?include_completed=false'],
         [EVE.getCharacterIndustryJobsUrl(5, true), 'https://esi.evetech.net/v1/characters/5/industry/jobs/?include_completed=true'],
 
+        [EVE.getCharacterMailsUrl(5), 'https://esi.evetech.net/v1/characters/5/mail/'],
+        [EVE.getCharacterMailsUrl(5, [1, 2, 3]), 'https://esi.evetech.net/v1/characters/5/mail/?labels=1,2,3'],
+        [EVE.getCharacterMailsUrl(5, undefined, 50), 'https://esi.evetech.net/v1/characters/5/mail/?last_mail_id=50'],
+        [EVE.getCharacterMailsUrl(5, [1, 2, 3], 50), 'https://esi.evetech.net/v1/characters/5/mail/?labels=1,2,3&last_mail_id=50'],
+        [EVE.getCharacterMailUrl(5, 6), 'https://esi.evetech.net/v1/characters/5/mail/6/'],
+        [EVE.getCharacterMailLabelsGETUrl(5), 'https://esi.evetech.net/v3/characters/5/mail/labels/'],
+        [EVE.getCharacterMailLabelsPOSTUrl(5), 'https://esi.evetech.net/v2/characters/5/mail/labels/'],
+        [EVE.getCharacterMailLabelUrl(5, 6), 'https://esi.evetech.net/v1/characters/5/mail/labels/6/'],
+        [EVE.getCharacterMailListsUrl(5), 'https://esi.evetech.net/v1/characters/5/mail/lists/'],
+
         [EVE.getIndustryActivityMaterialsUrl(), 'https://sde.zzeve.com/industryActivityMaterials.json'],
         [EVE.getIndustryActivityProductsUrl(), 'https://sde.zzeve.com/industryActivityProducts.json'],
         [EVE.getIndustryActivitySkillsUrl(), 'https://sde.zzeve.com/industryActivitySkills.json'],
