@@ -1,3 +1,7 @@
+type ArrayOneOrMore<T> = {
+    0: T;
+} & T[];
+
 export type IMarketOrdersData = IMarketOrdersDataUnit[];
 
 export interface IMarketOrdersDataUnit {
@@ -872,4 +876,84 @@ export interface ISearchData {
     region?: number[];
     solar_system?: number[];
     station?: number[];
+}
+
+export type IMailRecipientType = 'alliance' | 'character' | 'corporation' | 'mailing_list';
+
+export interface IMailRecipient {
+    recipient_id: number;
+    recipient_type: IMailRecipientType;
+}
+
+export type ICharacterMailsData = ICharacterMailsDataUnit[];
+
+export interface ICharacterMailsDataUnit {
+    from?: number;
+    is_read?: boolean;
+    labels?: number[];
+    mail_id?: number;
+    recipients?: ArrayOneOrMore<IMailRecipient>;
+    subject?: string;
+    timestamp?: string;
+}
+
+export interface  ICharacterMailData {
+    body?: string;
+    from?: number;
+    labels?: number[];
+    read?: boolean;
+    recipients?: ArrayOneOrMore<IMailRecipient>;
+    subject?: string;
+    timestamp?: string;
+}
+
+export interface ICharacterMailPost {
+    approved_cost?: number;
+    body: string;
+    recipients: ArrayOneOrMore<IMailRecipient>;
+    subject: string;
+}
+
+export interface ICharacterMailPut {
+    labels?: number[];
+    read: boolean;
+}
+
+export type IMailLabelColor =
+    '#0000fe'
+    | '#006634'
+    | '#0099ff'
+    | '#00ff33'
+    | '#01ffff'
+    | '#349800'
+    | '#660066'
+    | '#666666'
+    | '#999999'
+    | '#99ffff'
+    | '#9a0000'
+    | '#ccff9a'
+    | '#e6e6e6'
+    | '#fe0000'
+    | '#ff6600'
+    | '#ffff01'
+    | '#ffffcd'
+    | '#ffffff';
+
+export interface ICharacterMailLabel {
+    color?: IMailLabelColor;
+    label_id?: string;
+    name?: string;
+    unread_count?: number;
+}
+
+export interface ICharacterMailLabelsData {
+    labels?: ICharacterMailLabel[];
+    total_unread_count?: number;
+}
+
+export type ICharacterMailListsData = ICharacterMailListsDataUnit[];
+
+export interface ICharacterMailListsDataUnit {
+    mailing_list_id: number;
+    name: string;
 }

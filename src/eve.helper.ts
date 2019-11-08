@@ -397,7 +397,7 @@ export class EVE {
      *
      * POST
      * https://esi.evetech.net/ui/?version=_latest#/Mail/post_characters_character_id_mail
-     * /v1/characters/{character_id}/mail/ -> number
+     * ICharacterMailPost -> /v1/characters/{character_id}/mail/ -> number
      */
     public static getCharacterMailsUrl(characterId: number, labels: number[] = [], lastMailId?: number) {
 
@@ -420,7 +420,7 @@ export class EVE {
      *
      * PUT
      * https://esi.evetech.net/ui/?version=_latest#/Mail/put_characters_character_id_mail_mail_id
-     * /v1/characters/{character_id}/mail/{mail_id}/ -> void
+     * ICharacterMailPut -> /v1/characters/{character_id}/mail/{mail_id}/ -> void
      *
      * DELETE
      * https://esi.evetech.net/ui/?version=_latest#/Mail/delete_characters_character_id_mail_mail_id
