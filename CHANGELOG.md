@@ -4,7 +4,15 @@ All notable changes to the eve-utils project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<!--## [Unreleased]-->
+## [Unreleased]
+### Added
+- /v1/characters/{character_id}/mail/ URL and typings.
+- /v1/characters/{character_id}/mail/{mail_id} URL and typings.
+- (GET) /v3/characters/{character_id}/mail/labels URL and typings.
+- (POST) /v2/characters/{character_id}/mail/labels URL and typings.
+- /v1/characters/{character_id}/mail/labels/{label_id} URL and typings.
+- /v1/characters/{character_id}/mail/lists URL and typings.
+
 ## [4.4.0] - 2019-10-31
 ### Added
 - /v4/universe/systems/{system_id}/ URL and typings.
