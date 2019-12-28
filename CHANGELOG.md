@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### BREAKING CHANGES
 - Dropped Node.js 11 support.
 - Dropped Node.js 8 support.
+- Renamed IStructurePosition to IPosition.
 
 ### Added
 - /v1/characters/{character_id}/mail/ URL and typings.
