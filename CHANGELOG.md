@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - (POST) /v2/characters/{character_id}/mail/labels URL and typings.
 - /v1/characters/{character_id}/mail/labels/{label_id} URL and typings.
 - /v1/characters/{character_id}/mail/lists URL and typings.
+- /v1/universe/regions/{region_id}/ URL and typings.
+- /v1/universe/constellations/ URL.
+- /v1/universe/constellations/{constellation_id}/ URL and typings.
 
 ## [4.4.0] - 2019-10-31
 ### Added

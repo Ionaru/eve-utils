@@ -541,6 +541,21 @@ export type IUniverseStationServicesType =
     | 'navy-offices'
     | 'security-offices';
 
+export interface IUniverseRegionData {
+    constellations: number[];
+    description?: string;
+    name: string;
+    region_id: number;
+}
+
+export interface IUniverseConstellationData {
+    constellation_id: number;
+    name: string;
+    position: IStructurePosition;
+    region_id: number;
+    systems: number[];
+}
+
 export interface IUniverseSystemData {
     constellation_id: number;
     name: string;
