@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### BREAKING CHANGES
+- Dropped Node.js 11 support.
+- Dropped Node.js 8 support.
+- Renamed IStructurePosition to IPosition.
+
 ### Added
 - /v1/characters/{character_id}/mail/ URL and typings.
 - /v1/characters/{character_id}/mail/{mail_id} URL and typings.
@@ -12,6 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - (POST) /v2/characters/{character_id}/mail/labels URL and typings.
 - /v1/characters/{character_id}/mail/labels/{label_id} URL and typings.
 - /v1/characters/{character_id}/mail/lists URL and typings.
+- /v1/universe/regions/{region_id}/ URL and typings.
+- /v1/universe/constellations/ URL.
+- /v1/universe/constellations/{constellation_id}/ URL and typings.
 
 ## [4.4.0] - 2019-10-31
 ### Added

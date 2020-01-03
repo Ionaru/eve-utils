@@ -460,7 +460,7 @@ export interface ICharacterBlueprintsDataUnit {
     type_id: number;
 }
 
-export interface IStructurePosition {
+export interface IPosition {
     x: number;
     y: number;
     z: number;
@@ -474,7 +474,7 @@ export interface IUniverseStructureData {
     owner_id: number;
 
     // Position of the structure with x/y/z coordinates.
-    position: IStructurePosition;
+    position: IPosition;
 
     // Id of the solar system where the structure is located.
     solar_system_id: number;
@@ -494,7 +494,7 @@ export interface IUniverseStationData {
     // ID of the corporation that controls this station
     owner?: number;
 
-    position: IStructurePosition;
+    position: IPosition;
 
     race_id?: number;
 
@@ -541,11 +541,26 @@ export type IUniverseStationServicesType =
     | 'navy-offices'
     | 'security-offices';
 
+export interface IUniverseRegionData {
+    constellations: number[];
+    description?: string;
+    name: string;
+    region_id: number;
+}
+
+export interface IUniverseConstellationData {
+    constellation_id: number;
+    name: string;
+    position: IPosition;
+    region_id: number;
+    systems: number[];
+}
+
 export interface IUniverseSystemData {
     constellation_id: number;
     name: string;
     planets?: IUniverseSystemPlanetData;
-    position: IStructurePosition;
+    position: IPosition;
     security_class?: string;
     security_status: number;
     star_id?: number;

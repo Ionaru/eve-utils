@@ -553,29 +553,73 @@ export class EVE {
         return EVE.constructESIUrl(1, ['universe', 'categories']);
     }
 
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Universe/get_universe_regions_region_id
+     * /v1/universe/regions/{region_id}/ -> IUniverseRegionData
+     */
+    public static getUniverseRegionUrl(regionId: number) {
+        return EVE.constructESIUrl(1, ['universe', 'regions', regionId]);
+    }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Universe/get_universe_regions
+     * /v1/universe/regions/ -> number[]
+     */
     public static getUniverseRegionsUrl() {
-        // number[]
         return EVE.constructESIUrl(1, ['universe', 'regions']);
     }
 
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Universe/get_universe_constellations_constellation_id
+     * /v1/universe/constellations/{constellation_id}/ -> IUniverseConstellationData
+     */
+    public static getUniverseConstellationUrl(constellationId: number) {
+        return EVE.constructESIUrl(1, ['universe', 'constellations', constellationId]);
+    }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Universe/get_universe_constellations
+     * /v1/universe/constellations/ -> number[]
+     */
+    public static getUniverseConstellationsUrl() {
+        return EVE.constructESIUrl(1, ['universe', 'constellations']);
+    }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Universe/get_universe_systems_system_id
+     * /v4/universe/systems/{system_id}/ -> IUniverseSystemData
+     */
     public static getUniverseSystemUrl(systemId: number) {
-        // IUniverseSystemData
         return EVE.constructESIUrl(4, ['universe', 'systems', systemId]);
     }
 
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Universe/get_universe_systems
+     * /v1/universe/systems/ -> number[]
+     */
     public static getUniverseSystemsUrl() {
-        // number[]
         return EVE.constructESIUrl(1, ['universe', 'systems']);
     }
 
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Status/get_status
+     * /v1/status/ -> IStatusData
+     */
     public static getStatusUrl() {
-        // IStatusData
         return EVE.constructESIUrl(1, ['status']);
     }
 
     /**
-     * Return search data.
-     * API return type: ISearchData
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Search/get_search
+     * /v2/search/ -> ISearchData
      */
     public static getSearchUrl(search: string, searchCategories?: ArrayOneOrMore<ISearchCategories>) {
         return EVE.constructESIUrl(2, ['search'], {
