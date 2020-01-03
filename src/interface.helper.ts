@@ -85,10 +85,21 @@ export interface IMarketHistoryDataUnit {
     lowest: number;
 }
 
+export type IUniverseNamesCategory =
+    'alliance'
+    | 'character'
+    | 'constellation'
+    | 'corporation'
+    | 'inventory_type'
+    | 'region'
+    | 'solar_system'
+    | 'station'
+    | 'faction';
+
 export type IUniverseNamesData = IUniverseNamesDataUnit[];
 
 export interface IUniverseNamesDataUnit {
-    category: string;
+    category: IUniverseNamesCategory;
     id: number;
     name: string;
 }
