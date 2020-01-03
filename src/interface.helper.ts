@@ -16,6 +16,7 @@ export interface IMarketOrdersDataUnit {
     duration: number;
     issued: string;
     range: string;
+    system_id: number;
 }
 
 export interface IUniverseTypeData {
