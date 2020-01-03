@@ -18,7 +18,7 @@ export class EVE {
 
     public static readonly skillCategoryId = 16;
 
-    public static readonly searchCategories = Object.freeze([
+    public static readonly searchCategories: ReadonlyArray<ISearchCategories> = Object.freeze([
         'agent', 'alliance', 'character', 'constellation', 'corporation', 'faction',
         'inventory_type', 'region', 'solar_system', 'station',
     ]);

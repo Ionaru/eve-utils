@@ -8,7 +8,29 @@
 ## Description
 A package containing various utilities for working with EVE Online's ESI and SDE.
 
-## Usage
+## Usage (Typescript)
 ```
 npm install @ionaru/eve-utils
+```
+
+```ts
+import { EVE } from '@ionaru/eve-utils'
+
+const url = EVE.getCharacterUrl(90735619);
+console.log(url) // 
+const response = fetch(url);
+```
+
+```ts
+import { EVE } from '@ionaru/eve-utils'
+
+console.log(EVE.mineral.tritanium); // 34
+console.log(EVE.ore.mercoxit); // 11396
+console.log(EVE.gas['Fullerite-C50']); // 30370
+```
+
+```ts
+import { IUniverseTypeData } from '@ionaru/eve-utils'
+
+const type: IUniverseTypeData;
 ```
