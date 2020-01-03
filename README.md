@@ -17,8 +17,7 @@ npm install @ionaru/eve-utils
 import { EVE } from '@ionaru/eve-utils'
 
 const url = EVE.getCharacterUrl(90735619);
-console.log(url) // 
-const response = fetch(url);
+console.log(url) // https://esi.evetech.net/v4/characters/90735619/
 ```
 
 ```ts
