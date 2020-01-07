@@ -627,4 +627,13 @@ export class EVE {
             search,
         });
     }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Industry/get_industry_systems
+     * /v1/industry/systems/ -> IIndustrySystemsData
+     */
+    public static getIndustrySystemsUrl() {
+        return EVE.constructESIUrl(1, ['industry', 'systems']);
+    }
 }

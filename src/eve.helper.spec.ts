@@ -66,6 +66,8 @@ describe('URL creators', () => {
         [EVE.getIndustryActivityUrl(), 'https://sde.zzeve.com/industryActivity.json'],
         [EVE.getInvTypeMaterialsUrl(), 'https://sde.zzeve.com/invTypeMaterials.json'],
 
+        [EVE.getIndustrySystemsUrl(), 'https://esi.evetech.net/v1/industry/systems/'],
+
         [EVE.getMarketGroupsUrl(), 'https://esi.evetech.net/v1/markets/groups/'],
         [EVE.getMarketGroupUrl(5), 'https://esi.evetech.net/v1/markets/groups/5/'],
 

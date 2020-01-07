@@ -630,6 +630,32 @@ export interface IIndustryActivityDataUnit {
     time: number;
 }
 
+export type IIndustrySystemsData = IIndustrySystemsDataUnit[];
+
+export interface IIndustrySystemsDataUnit {
+    cost_indices: IIndustrySystemsCostIndices;
+    solar_system_id: number;
+}
+
+export type IIndustrySystemsCostIndices = IIndustrySystemsCostIndice[];
+
+export interface IIndustrySystemsCostIndice {
+    activity: IIndustrySystemsCostIndiceActivity;
+    cost_index: number;
+}
+
+export type IIndustrySystemsCostIndiceActivity =
+    'copying'
+    | 'duplicating'
+    | 'invention'
+    | 'manufacturing'
+    | 'none'
+    | 'reaction'
+    | 'researching_material_efficiency'
+    | 'researching_technology'
+    | 'researching_time_efficiency'
+    | 'reverse_engineering';
+
 export enum IndustryActivity {
     none = 0,
     manufacturing = 1,

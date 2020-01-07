@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- /v1/industry/systems/ URL and typings.
 - Typings for IUniverseNamesDataUnit.category.
 - system_id to IMarketOrdersDataUnit.
 
