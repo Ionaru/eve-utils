@@ -644,17 +644,18 @@ export interface IIndustrySystemsCostIndex {
     cost_index: number;
 }
 
-export type IIndustrySystemsCostIndexActivity =
-    'copying'
-    | 'duplicating'
-    | 'invention'
-    | 'manufacturing'
-    | 'none'
-    | 'reaction'
-    | 'researching_material_efficiency'
-    | 'researching_technology'
-    | 'researching_time_efficiency'
-    | 'reverse_engineering';
+export enum IIndustrySystemsCostIndexActivity {
+    COPYING = 'copying',
+    DUPLICATING = 'duplicating',
+    INVENTION = 'invention',
+    MANUFACTURING = 'manufacturing',
+    NONE = 'none',
+    REACTION = 'reaction',
+    RESEARCHING_MATERIAL_EFFICIENCY = 'researching_material_efficiency',
+    RESEARCHING_TECHNOLOGY = 'researching_technology',
+    RESEARCHING_TIME_EFFICIENCY = 'researching_time_efficiency',
+    REVERSE_ENGINEERING = 'reverse_engineering',
+}
 
 export enum IndustryActivity {
     none = 0,
