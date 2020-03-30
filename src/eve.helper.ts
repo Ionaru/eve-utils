@@ -507,7 +507,7 @@ export class EVE {
      * https://esi.evetech.net/ui/?version=_latest#/Market/get_markets_prices
      * /v1/markets/prices/ -> IMarketPricesData
      */
-    public static getMarketPrices() {
+    public static getMarketPricesUrl() {
         return EVE.constructESIUrl(1, ['markets', 'prices']);
     }
 
