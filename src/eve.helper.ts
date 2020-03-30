@@ -502,6 +502,15 @@ export class EVE {
         );
     }
 
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Market/get_markets_prices
+     * /v1/markets/prices/ -> IMarketPricesData
+     */
+    public static getMarketPrices() {
+        return EVE.constructESIUrl(1, ['markets', 'prices']);
+    }
+
     // Universe
 
     public static getUniverseGroupUrl(groupId: number) {

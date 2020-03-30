@@ -1011,3 +1011,11 @@ export interface ICharacterMailListsDataUnit {
     mailing_list_id: number;
     name: string;
 }
+
+export type IMarketPricesData = IMarketPrice[];
+
+export interface IMarketPrice {
+    adjusted_price: number;
+    average_price: number;
+    type_id: number;
+}
