@@ -637,14 +637,14 @@ export interface IIndustrySystemsDataUnit {
     solar_system_id: number;
 }
 
-export type IIndustrySystemsCostIndices = IIndustrySystemsCostIndice[];
+export type IIndustrySystemsCostIndices = IIndustrySystemsCostIndex[];
 
-export interface IIndustrySystemsCostIndice {
-    activity: IIndustrySystemsCostIndiceActivity;
+export interface IIndustrySystemsCostIndex {
+    activity: IIndustrySystemsCostIndexActivity;
     cost_index: number;
 }
 
-export type IIndustrySystemsCostIndiceActivity =
+export type IIndustrySystemsCostIndexActivity =
     'copying'
     | 'duplicating'
     | 'invention'
