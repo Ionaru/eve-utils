@@ -78,7 +78,7 @@ describe('URL creators', () => {
 
         [EVE.getMarketHistoryUrl(5, 6), 'https://esi.evetech.net/v1/markets/5/history/?type_id=6'],
 
-        [EVE.getMarketPrices(), 'https://esi.evetech.net/v1/markets/prices/'],
+        [EVE.getMarketPricesUrl(), 'https://esi.evetech.net/v1/markets/prices/'],
 
         [EVE.getStatusUrl(), 'https://esi.evetech.net/v1/status/'],
 
