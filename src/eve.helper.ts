@@ -271,7 +271,7 @@ export class EVE {
         },
     });
 
-    public static constructESIUrl(version: number | string, path: Array<string | number>, params?: IQueryParams): string {
+    public static constructESIUrl(version: number | string, path: (string | number)[], params?: IQueryParams): string {
         let url = `${EVE.ESIURL}/v${version}/`;
 
         if (path.length) {
