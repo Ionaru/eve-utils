@@ -121,7 +121,7 @@ export class EVE {
         stableVeldspar: 46689,
 
         scordite: 1228,
-        condensedScordite: 17459,
+        condensedScordite: 17463,
         massiveScordite: 17464,
         glossyScordite: 46687,
 

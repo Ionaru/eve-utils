@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Typings for IUniverseNamesDataUnit.category.
 - system_id to IMarketOrdersDataUnit.
 
+### Fixed
+- Condensed Scordite ID
+
 ## [5.0.0] - 2020-01-03
 ### BREAKING CHANGES
 - Dropped Node.js 11 support.
