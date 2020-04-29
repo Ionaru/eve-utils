@@ -4,7 +4,21 @@ All notable changes to the eve-utils project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<!--## [Unreleased]-->
+## [Unreleased]
+### Added
+- Enum with ore types
+- Enum with gas types
+- Enum with mineral types
+- Enum with search categories
+- Uppercase values of IndustryActivity
+
+### Changed
+- Deprecated EVE.ore
+- Deprecated EVE.gas
+- Deprecated EVE.mineral
+- Deprecated ISearchCategories
+- Deprecated lowercase values of IndustryActivity
+
 ## [6.0.0] - 2020-04-29
 ### BREAKING CHANGES
 - Updated getCharacterAssetsUrl and typings to v5.

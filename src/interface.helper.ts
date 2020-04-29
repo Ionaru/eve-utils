@@ -660,15 +660,52 @@ export enum IIndustrySystemsCostIndexActivity {
 }
 
 export enum IndustryActivity {
+    /**
+     * @deprecated Use IndustryActivity.NONE
+     */
     none = 0,
+    /**
+     * @deprecated Use IndustryActivity.MANUFACTURING
+     */
     manufacturing = 1,
+    /**
+     * @deprecated Use IndustryActivity.RESEARCH_TIME_EFFICIENCY
+     */
     research_time_efficiency = 3,
+    /**
+     * @deprecated Use IndustryActivity.RESEARCH_MATERIAL_EFFICIENCY
+     */
     research_material_efficiency = 4,
+    /**
+     * @deprecated Use IndustryActivity.COPYING
+     */
     copying = 5,
+    /**
+     * @deprecated Use IndustryActivity.DUPLICATING
+     */
     duplicating = 6,
+    /**
+     * @deprecated Use IndustryActivity.REVERSE_ENGINEERING
+     */
     reverse_engineering = 7,
+    /**
+     * @deprecated Use IndustryActivity.INVENTION
+     */
     invention = 8,
+    /**
+     * @deprecated Use IndustryActivity.REACTIONS
+     */
     reactions = 11,
+
+    NONE = 0,
+    MANUFACTURING = 1,
+    RESEARCH_TIME_EFFICIENCY = 3,
+    RESEARCH_MATERIAL_EFFICIENCY = 4,
+    COPYING = 5,
+    DUPLICATING = 6,
+    REVERSE_ENGINEERING = 7,
+    INVENTION = 8,
+    REACTIONS = 11,
 }
 
 export type MarketGroupsData = IMarketGroupData[];
@@ -910,6 +947,9 @@ export type ICharacterBlueprintsLocationFlag =
     | 'FighterTube4'
     | 'Module';
 
+/**
+ * @deprecated Use SearchCategory
+ */
 export type ISearchCategories =
     'agent'
     | 'alliance'
@@ -954,7 +994,7 @@ export interface ICharacterMailsDataUnit {
     timestamp?: string;
 }
 
-export interface  ICharacterMailData {
+export interface ICharacterMailData {
     body?: string;
     from?: number;
     labels?: number[];
@@ -1021,4 +1061,17 @@ export interface IMarketPrice {
     adjusted_price: number;
     average_price: number;
     type_id: number;
+}
+
+export enum SearchCategory {
+    AGENT = 'agent',
+    ALLIANCE = 'alliance',
+    CHARACTER = 'character',
+    CONSTELLATION = 'constellation',
+    CORPORATION = 'corporation',
+    FACTION = 'faction',
+    INVENTORY_TYPE = 'inventory_type',
+    REGION = 'region',
+    SOLAR_SYSTEM = 'solar_system',
+    STATION = 'station',
 }

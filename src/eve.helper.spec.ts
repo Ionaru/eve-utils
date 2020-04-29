@@ -1,4 +1,8 @@
-import { EVE } from './';
+import { Gas } from './gas';
+import { Mineral } from './mineral';
+import { Ore } from './ore';
+
+import { EVE, SearchCategory } from './';
 
 // eslint-disable-next-line jest/lowercase-name
 describe('URL tests', () => {
@@ -89,6 +93,7 @@ describe('URL creators', () => {
         // eslint-disable-next-line max-len
         [EVE.getSearchUrl('something'), 'https://esi.evetech.net/v2/search/?categories=agent,alliance,character,constellation,corporation,faction,inventory_type,region,solar_system,station&search=something'],
         [EVE.getSearchUrl('something', ['region']), 'https://esi.evetech.net/v2/search/?categories=region&search=something'],
+        [EVE.getSearchUrl('something', [SearchCategory.REGION]), 'https://esi.evetech.net/v2/search/?categories=region&search=something'],
         // eslint-disable-next-line max-len
         [EVE.getSearchUrl('something', ['region', 'faction']), 'https://esi.evetech.net/v2/search/?categories=region,faction&search=something'],
 
@@ -117,36 +122,46 @@ describe('URL creators', () => {
 
 describe('ores & minerals', () => {
     it('ores', () => {
-        expect.assertions(9);
+        expect.assertions(10);
 
-        expect(EVE.ores.highSec.base).toContain(EVE.ore.veldspar);
-        expect(EVE.ores.highSec.beltVariants).toContain(EVE.ore.concentratedVeldspar);
-        expect(EVE.ores.highSec.beltVariants).toContain(EVE.ore.denseVeldspar);
-        expect(EVE.ores.highSec.moonVariants).toContain(EVE.ore.stableVeldspar);
+        expect(EVE.ores.highSec.base).toContain(Ore.Veldspar);
+        expect(EVE.ores.highSec.beltVariants).toContain(Ore['Concentrated Veldspar']);
+        expect(EVE.ores.highSec.beltVariants).toContain(Ore['Dense Veldspar']);
+        expect(EVE.ores.highSec.moonVariants).toContain(Ore['Stable Veldspar']);
 
-        expect(EVE.ores.all).toContain(EVE.ore.veldspar);
-        expect(EVE.ores.all).toContain(EVE.ore.concentratedVeldspar);
-        expect(EVE.ores.all).toContain(EVE.ore.denseVeldspar);
-        expect(EVE.ores.all).toContain(EVE.ore.stableVeldspar);
+        expect(EVE.ores.all).toContain(Ore.Veldspar);
+        expect(EVE.ores.all).toContain(Ore['Concentrated Veldspar']);
+        expect(EVE.ores.all).toContain(Ore['Dense Veldspar']);
+        expect(EVE.ores.all).toContain(Ore['Stable Veldspar']);
 
         expect((new Set(EVE.ores.all)).size).toBe(EVE.ores.all.length);
+        expect(Object.keys(Ore)).toHaveLength(EVE.ores.all.length * 2);
     });
 
     it('minerals', () => {
-        expect.assertions(2);
+        expect.assertions(10);
 
-        expect(EVE.minerals).toContain(EVE.mineral.tritanium);
+        expect(EVE.minerals).toContain(Mineral.Tritanium);
+        expect(EVE.minerals).toContain(Mineral.Pyerite);
+        expect(EVE.minerals).toContain(Mineral.Morphite);
+        expect(EVE.minerals).toContain(Mineral.Megacyte);
+        expect(EVE.minerals).toContain(Mineral.Isogen);
+        expect(EVE.minerals).toContain(Mineral.Nocxium);
+        expect(EVE.minerals).toContain(Mineral.Mexallon);
+        expect(EVE.minerals).toContain(Mineral.Zydrine);
 
         expect((new Set(EVE.minerals)).size).toBe(EVE.minerals.length);
+        expect(Object.keys(Mineral)).toHaveLength(EVE.minerals.length * 2);
     });
 
     it('gasses', () => {
-        expect.assertions(4);
+        expect.assertions(5);
 
-        expect(EVE.gasses.fullerenes).toContain(EVE.gas['Fullerite-C72']);
-        expect(EVE.gasses.boosterGasClouds).toContain(EVE.gas['Viridian Cytoserocin']);
-        expect(EVE.gasses.all).toContain(EVE.gas['Gamboge Cytoserocin']);
+        expect(EVE.gasses.fullerenes).toContain(Gas['Fullerite-C72']);
+        expect(EVE.gasses.boosterGasClouds).toContain(Gas['Viridian Cytoserocin']);
+        expect(EVE.gasses.all).toContain(Gas['Gamboge Cytoserocin']);
 
         expect((new Set(EVE.gasses.all)).size).toBe(EVE.gasses.all.length);
+        expect(Object.keys(Gas)).toHaveLength(EVE.gasses.all.length * 2);
     });
 });

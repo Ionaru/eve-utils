@@ -1,4 +1,7 @@
-import { ISearchCategories } from './interface.helper';
+import { Gas } from './gas';
+import { ISearchCategories, SearchCategory } from './interface.helper';
+import { Mineral } from './mineral';
+import { Ore } from './ore';
 
 interface IQueryParams {
     [key: string]: string | number;
@@ -18,11 +21,17 @@ export class EVE {
 
     public static readonly skillCategoryId = 16;
 
+    /**
+     * @deprecated Use SearchCategory from interface.helper.ts
+     */
     public static readonly searchCategories: readonly ISearchCategories[] = Object.freeze([
         'agent', 'alliance', 'character', 'constellation', 'corporation', 'faction',
         'inventory_type', 'region', 'solar_system', 'station',
     ]);
 
+    /**
+     * @deprecated Use Ore from ore.ts
+     */
     public static readonly gas = Object.freeze({
         'Fullerite-C28': 30375,
         'Fullerite-C32': 30376,
@@ -56,39 +65,42 @@ export class EVE {
     });
 
     public static readonly gasses = Object.freeze({
-        all: Object.values(EVE.gas),
+        all: Object.values(Gas).filter((gas) => !isNaN(Number(gas))).map((gas) => Number(gas)),
         boosterGasClouds: [
-            EVE.gas['Amber Cytoserocin'],
-            EVE.gas['Amber Mykoserocin'],
-            EVE.gas['Azure Cytoserocin'],
-            EVE.gas['Azure Mykoserocin'],
-            EVE.gas['Celadon Cytoserocin'],
-            EVE.gas['Celadon Mykoserocin'],
-            EVE.gas['Golden Cytoserocin'],
-            EVE.gas['Golden Mykoserocin'],
-            EVE.gas['Lime Cytoserocin'],
-            EVE.gas['Lime Mykoserocin'],
-            EVE.gas['Malachite Cytoserocin'],
-            EVE.gas['Malachite Mykoserocin'],
-            EVE.gas['Vermillion Cytoserocin'],
-            EVE.gas['Vermillion Mykoserocin'],
-            EVE.gas['Viridian Cytoserocin'],
-            EVE.gas['Viridian Mykoserocin'],
+            Gas['Amber Cytoserocin'],
+            Gas['Amber Mykoserocin'],
+            Gas['Azure Cytoserocin'],
+            Gas['Azure Mykoserocin'],
+            Gas['Celadon Cytoserocin'],
+            Gas['Celadon Mykoserocin'],
+            Gas['Golden Cytoserocin'],
+            Gas['Golden Mykoserocin'],
+            Gas['Lime Cytoserocin'],
+            Gas['Lime Mykoserocin'],
+            Gas['Malachite Cytoserocin'],
+            Gas['Malachite Mykoserocin'],
+            Gas['Vermillion Cytoserocin'],
+            Gas['Vermillion Mykoserocin'],
+            Gas['Viridian Cytoserocin'],
+            Gas['Viridian Mykoserocin'],
         ],
         fullerenes: [
-            EVE.gas['Fullerite-C28'],
-            EVE.gas['Fullerite-C32'],
-            EVE.gas['Fullerite-C50'],
-            EVE.gas['Fullerite-C60'],
-            EVE.gas['Fullerite-C70'],
-            EVE.gas['Fullerite-C72'],
-            EVE.gas['Fullerite-C84'],
-            EVE.gas['Fullerite-C320'],
-            EVE.gas['Fullerite-C540'],
+            Gas['Fullerite-C28'],
+            Gas['Fullerite-C32'],
+            Gas['Fullerite-C50'],
+            Gas['Fullerite-C60'],
+            Gas['Fullerite-C70'],
+            Gas['Fullerite-C72'],
+            Gas['Fullerite-C84'],
+            Gas['Fullerite-C320'],
+            Gas['Fullerite-C540'],
         ],
     });
 
     /* tslint:disable:object-literal-sort-keys */
+    /**
+     * @deprecated Use Mineral from mineral.ts
+     */
     public static readonly mineral = Object.freeze({
         tritanium: 34,
         pyerite: 35,
@@ -99,20 +111,22 @@ export class EVE {
         megacyte: 40,
         morphite: 11399,
     });
-    /* tslint:enable:object-literal-sort-keys */
 
     public static readonly minerals = Object.freeze([
-        EVE.mineral.tritanium,
-        EVE.mineral.pyerite,
-        EVE.mineral.mexallon,
-        EVE.mineral.isogen,
-        EVE.mineral.nocxium,
-        EVE.mineral.zydrine,
-        EVE.mineral.megacyte,
-        EVE.mineral.morphite,
+        Mineral.Tritanium,
+        Mineral.Pyerite,
+        Mineral.Mexallon,
+        Mineral.Isogen,
+        Mineral.Nocxium,
+        Mineral.Zydrine,
+        Mineral.Megacyte,
+        Mineral.Morphite,
     ]);
 
     /* tslint:disable:object-literal-sort-keys */
+    /**
+     * @deprecated Use Ore from ore.ts
+     */
     public static readonly ore = Object.freeze({
 
         veldspar: 1230,
@@ -197,76 +211,76 @@ export class EVE {
     /* tslint:enable:object-literal-sort-keys */
 
     public static readonly ores = Object.freeze({
-        all: Object.values(EVE.ore),
+        all: Object.values(Ore).filter((ore) => !isNaN(Number(ore))).map((ore) => Number(ore)),
         highSec: {
             base: [
-                EVE.ore.veldspar,
-                EVE.ore.scordite,
-                EVE.ore.pyroxeres,
-                EVE.ore.plagioclase,
-                EVE.ore.omber,
-                EVE.ore.kernite,
+                Ore.Veldspar,
+                Ore.Scordite,
+                Ore.Pyroxeres,
+                Ore.Plagioclase,
+                Ore.Omber,
+                Ore.Kernite,
             ],
             beltVariants: [
-                EVE.ore.concentratedVeldspar, EVE.ore.denseVeldspar,
-                EVE.ore.condensedScordite, EVE.ore.massiveScordite,
-                EVE.ore.solidPyroxeres, EVE.ore.viscousPyroxeres,
-                EVE.ore.azurePlagioclase, EVE.ore.richPlagioclase,
-                EVE.ore.silveryOmber, EVE.ore.goldenOmber,
-                EVE.ore.luminousKernite, EVE.ore.fieryKernite,
+                Ore['Concentrated Veldspar'], Ore['Dense Veldspar'],
+                Ore['Condensed Scordite'], Ore['Massive Scordite'],
+                Ore['Solid Pyroxeres'], Ore['Viscous Pyroxeres'],
+                Ore['Azure Plagioclase'], Ore['Rich Plagioclase'],
+                Ore['Silvery Omber'], Ore['Golden Omber'],
+                Ore['Luminous Kernite'], Ore['Fiery Kernite'],
             ],
             moonVariants: [
-                EVE.ore.stableVeldspar,
-                EVE.ore.glossyScordite,
-                EVE.ore.opulentPyroxeres,
-                EVE.ore.sparklingPlagioclase,
-                EVE.ore.platinoidOmber,
-                EVE.ore.resplendantKernite,
+                Ore['Stable Veldspar'],
+                Ore['Glossy Scordite'],
+                Ore['Opulent Pyroxeres'],
+                Ore['Sparkling Plagioclase'],
+                Ore['Platinoid Omber'],
+                Ore['Resplendant Kernite'],
             ],
         },
         lowSec: {
             base: [
-                EVE.ore.jaspet,
-                EVE.ore.hemorphite,
-                EVE.ore.hedbergite,
+                Ore.Jaspet,
+                Ore.Hemorphite,
+                Ore.Hedbergite,
             ],
             beltVariants: [
-                EVE.ore.pureJaspet, EVE.ore.pristineJaspet,
-                EVE.ore.vividHemorphite, EVE.ore.radiantHemorphite,
-                EVE.ore.vitricHedbergite, EVE.ore.glazedHedbergite,
+                Ore['Pure Jaspet'], Ore['Pristine Jaspet'],
+                Ore['Vivid Hemorphite'], Ore['Radiant Hemorphite'],
+                Ore['Vitric Hedbergite'], Ore['Glazed Hedbergite'],
             ],
             moonVariants: [
-                EVE.ore.immaculateJaspet,
-                EVE.ore.scintillatingHemorphite,
-                EVE.ore.lustrousHedbergite,
+                Ore['Immaculate Jaspet'],
+                Ore['Scintillating Hemorphite'],
+                Ore['Lustrous Hedbergite'],
             ],
         },
         nullSec: {
             base: [
-                EVE.ore.gneiss,
-                EVE.ore.darkOchre,
-                EVE.ore.spodumain,
-                EVE.ore.crokite,
-                EVE.ore.bistot,
-                EVE.ore.arkonor,
-                EVE.ore.mercoxit,
+                Ore.Gneiss,
+                Ore['Dark Ochre'],
+                Ore.Spodumain,
+                Ore.Crokite,
+                Ore.Bistot,
+                Ore.Arkonor,
+                Ore.Mercoxit,
             ],
             beltVariants: [
-                EVE.ore.iridescentGneiss, EVE.ore.prismaticGneiss,
-                EVE.ore.onyxOchre, EVE.ore.obsidianOchre,
-                EVE.ore.brightSpodumain, EVE.ore.gleamingSpodumain,
-                EVE.ore.sharpCrokite, EVE.ore.crystallineCrokite,
-                EVE.ore.triclinicBistot, EVE.ore.monoclinicBistot,
-                EVE.ore.crimsonArkonor, EVE.ore.primeArkonor,
-                EVE.ore.magmaMercoxit, EVE.ore.vitreousMercoxit,
+                Ore['Iridescent Gneiss'], Ore['Prismatic Gneiss'],
+                Ore['Onyx Ochre'], Ore['Obsidian Ochre'],
+                Ore['Bright Spodumain'], Ore['Gleaming Spodumain'],
+                Ore['Sharp Crokite'], Ore['Crystalline Crokite'],
+                Ore['Triclinic Bistot'], Ore['Monoclinic Bistot'],
+                Ore['Crimson Arkonor'], Ore['Prime Arkonor'],
+                Ore['Magma Mercoxit'], Ore['Vitreous Mercoxit'],
             ],
             moonVariants: [
-                EVE.ore.brilliantGneiss,
-                EVE.ore.jetOchre,
-                EVE.ore.dazzlingSpodumain,
-                EVE.ore.pellucidCrokite,
-                EVE.ore.cubicBistot,
-                EVE.ore.flawlessArkonor,
+                Ore['Brilliant Gneiss'],
+                Ore['Jet Ochre'],
+                Ore['Dazzling Spodumain'],
+                Ore['Pellucid Crokite'],
+                Ore['Cubic Bistot'],
+                Ore['Flawless Arkonor'],
             ],
         },
     });
@@ -635,9 +649,9 @@ export class EVE {
      * https://esi.evetech.net/ui/?version=_latest#/Search/get_search
      * /v2/search/ -> ISearchData
      */
-    public static getSearchUrl(search: string, searchCategories?: ArrayOneOrMore<ISearchCategories>) {
+    public static getSearchUrl(search: string, searchCategories?: ArrayOneOrMore<SearchCategory | ISearchCategories>) {
         return EVE.constructESIUrl(2, ['search'], {
-            categories: (searchCategories || EVE.searchCategories).join(','),
+            categories: (searchCategories || Object.values(SearchCategory)).join(','),
             search,
         });
     }
