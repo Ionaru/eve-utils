@@ -37,7 +37,7 @@ describe('URL creators', () => {
 
         [EVE.getCharacterUrl(5), 'https://esi.evetech.net/v4/characters/5/'],
         [EVE.getCharacterAttributesUrl(5), 'https://esi.evetech.net/v1/characters/5/attributes/'],
-        [EVE.getCharacterAssetsUrl(5, 6), 'https://esi.evetech.net/v3/characters/5/assets/?page=6'],
+        [EVE.getCharacterAssetsUrl(5, 6), 'https://esi.evetech.net/v5/characters/5/assets/?page=6'],
         [EVE.getCharacterAssetsLocationsUrl(5), 'https://esi.evetech.net/v2/characters/5/assets/locations/'],
         [EVE.getCharacterAssetsNamesUrl(5), 'https://esi.evetech.net/v1/characters/5/assets/names/'],
         [EVE.getCharacterBlueprintsUrl(5, 6), 'https://esi.evetech.net/v2/characters/5/blueprints/?page=6'],

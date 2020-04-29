@@ -763,6 +763,7 @@ export type ICharacterAssetsLocationFlag =
     | 'FighterTube3'
     | 'FighterTube4'
     | 'FleetHangar'
+    | 'FrigateEscapeBay'
     | 'Hangar'
     | 'HangarAll'
     | 'HiSlot0'
