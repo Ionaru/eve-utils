@@ -1,8 +1,4 @@
-import { Gas } from './types/gas';
-import { Mineral } from './types/mineral';
-import { Ore } from './types/ore';
-
-import { EVE, SearchCategory } from './';
+import { EVE, Gas, Mineral, Ore, SearchCategory } from './';
 
 // eslint-disable-next-line jest/lowercase-name
 describe('URL tests', () => {
