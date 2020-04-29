@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### BREAKING CHANGES
 - Updated getCharacterAssetsUrl and typings to v5.
 
+### Added
+- Support for Node.js 14
+
 ## [5.1.0] - 2020-01-03
 ### Added
 - /v1/markets/prices/ URL and typings.
