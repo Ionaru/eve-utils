@@ -1,10 +1,9 @@
-/* tslint:disable:max-line-length */
-
 import { EVE } from './';
 
+// eslint-disable-next-line jest/lowercase-name
 describe('URL tests', () => {
 
-    test.each([
+    it.each([
 
         [[1, []], 'https://esi.evetech.net/v1/'],
         [[2, ['thing']], 'https://esi.evetech.net/v2/thing/'],
@@ -12,28 +11,33 @@ describe('URL tests', () => {
         [[4, ['thing', 'other', 6]], 'https://esi.evetech.net/v4/thing/other/6/'],
 
     ])('constructESIURL %j', (parameters, expected) => {
-        expect(EVE.constructESIUrl(parameters[0] as number, parameters[1] as string[], {})).toEqual(expected);
-        expect(EVE.constructESIUrl(parameters[0] as number, parameters[1] as string[])).toEqual(expected);
+        expect.assertions(2);
+
+        expect(EVE.constructESIUrl(parameters[0] as number, parameters[1] as string[], {})).toStrictEqual(expected);
+        expect(EVE.constructESIUrl(parameters[0] as number, parameters[1] as string[])).toStrictEqual(expected);
     });
 
-    test('constructESIURL advanced', () => {
+    it('constructESIURL advanced', () => {
+        expect.assertions(4);
+
         const url1 = EVE.constructESIUrl(1, [], {param1: 1});
-        expect(url1).toEqual('https://esi.evetech.net/v1/?param1=1');
+        expect(url1).toStrictEqual('https://esi.evetech.net/v1/?param1=1');
 
         const url2 = EVE.constructESIUrl(1, ['thing'], {param1: 1});
-        expect(url2).toEqual('https://esi.evetech.net/v1/thing/?param1=1');
+        expect(url2).toStrictEqual('https://esi.evetech.net/v1/thing/?param1=1');
 
         const url3 = EVE.constructESIUrl(1, [], {param1: 1, param2: 'something'});
-        expect(url3).toEqual('https://esi.evetech.net/v1/?param1=1&param2=something');
+        expect(url3).toStrictEqual('https://esi.evetech.net/v1/?param1=1&param2=something');
 
         const url4 = EVE.constructESIUrl(1, ['thing'], {param1: 1, param2: 'something'});
-        expect(url4).toEqual('https://esi.evetech.net/v1/thing/?param1=1&param2=something');
+        expect(url4).toStrictEqual('https://esi.evetech.net/v1/thing/?param1=1&param2=something');
     });
 });
 
+// eslint-disable-next-line jest/lowercase-name
 describe('URL creators', () => {
 
-    test.each([
+    it.each([
 
         [EVE.getCharacterUrl(5), 'https://esi.evetech.net/v4/characters/5/'],
         [EVE.getCharacterAttributesUrl(5), 'https://esi.evetech.net/v1/characters/5/attributes/'],
@@ -82,8 +86,10 @@ describe('URL creators', () => {
 
         [EVE.getStatusUrl(), 'https://esi.evetech.net/v1/status/'],
 
+        // eslint-disable-next-line max-len
         [EVE.getSearchUrl('something'), 'https://esi.evetech.net/v2/search/?categories=agent,alliance,character,constellation,corporation,faction,inventory_type,region,solar_system,station&search=something'],
         [EVE.getSearchUrl('something', ['region']), 'https://esi.evetech.net/v2/search/?categories=region&search=something'],
+        // eslint-disable-next-line max-len
         [EVE.getSearchUrl('something', ['region', 'faction']), 'https://esi.evetech.net/v2/search/?categories=region,faction&search=something'],
 
         [EVE.getUniverseCategoryUrl(5), 'https://esi.evetech.net/v1/universe/categories/5/'],
@@ -104,12 +110,15 @@ describe('URL creators', () => {
         [EVE.getUniverseTypesUrl(5), 'https://esi.evetech.net/v1/universe/types/?page=5'],
 
     ])('URL creator %p', (url, expected) => {
-        expect(url).toEqual(expected);
+        expect.assertions(1);
+        expect(url).toStrictEqual(expected);
     });
 });
 
-describe('Ores & minerals', () => {
-    test('ores', () => {
+describe('ores & minerals', () => {
+    it('ores', () => {
+        expect.assertions(9);
+
         expect(EVE.ores.highSec.base).toContain(EVE.ore.veldspar);
         expect(EVE.ores.highSec.beltVariants).toContain(EVE.ore.concentratedVeldspar);
         expect(EVE.ores.highSec.beltVariants).toContain(EVE.ore.denseVeldspar);
@@ -123,13 +132,17 @@ describe('Ores & minerals', () => {
         expect((new Set(EVE.ores.all)).size).toBe(EVE.ores.all.length);
     });
 
-    test('minerals', () => {
+    it('minerals', () => {
+        expect.assertions(2);
+
         expect(EVE.minerals).toContain(EVE.mineral.tritanium);
 
         expect((new Set(EVE.minerals)).size).toBe(EVE.minerals.length);
     });
 
-    test('gasses', () => {
+    it('gasses', () => {
+        expect.assertions(4);
+
         expect(EVE.gasses.fullerenes).toContain(EVE.gas['Fullerite-C72']);
         expect(EVE.gasses.boosterGasClouds).toContain(EVE.gas['Viridian Cytoserocin']);
         expect(EVE.gasses.all).toContain(EVE.gas['Gamboge Cytoserocin']);

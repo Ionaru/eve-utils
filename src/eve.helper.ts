@@ -18,7 +18,7 @@ export class EVE {
 
     public static readonly skillCategoryId = 16;
 
-    public static readonly searchCategories: ReadonlyArray<ISearchCategories> = Object.freeze([
+    public static readonly searchCategories: readonly ISearchCategories[] = Object.freeze([
         'agent', 'alliance', 'character', 'constellation', 'corporation', 'faction',
         'inventory_type', 'region', 'solar_system', 'station',
     ]);
@@ -271,7 +271,7 @@ export class EVE {
         },
     });
 
-    public static constructESIUrl(version: number | string, path: (string | number)[], params?: IQueryParams): string {
+    public static constructESIUrl(version: number | string, path: Array<string | number>, params?: IQueryParams): string {
         let url = `${EVE.ESIURL}/v${version}/`;
 
         if (path.length) {

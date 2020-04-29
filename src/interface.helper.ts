@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 type ArrayOneOrMore<T> = {
     0: T;
 } & T[];
