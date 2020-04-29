@@ -1,6 +1,6 @@
-import { Gas } from './gas';
-import { Mineral } from './mineral';
-import { Ore } from './ore';
+import { Gas } from './types/gas';
+import { Mineral } from './types/mineral';
+import { Ore } from './types/ore';
 
 import { EVE, SearchCategory } from './';
 
