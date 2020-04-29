@@ -13,18 +13,18 @@ jobs:
           deploy:
               - provider: npm
                 email: info@saturnserver.org
-                api_key:
+                api_token:
                     secure: RuvKs7XDnIkhLkEPoVS4rFJIxNfRyVmHKuLo9ib/CBMLc7eF7M5y536JY+O2oaKqNhzxvQShfnemoFWcTsUoilf5YighdiZb5Ex7sBCG/amU40N8Zl2jye7CKVqkuMtzTIxOv3qgduHkWo4G2My744f9r/mPt/6EPNO3l/MI+CEwNOce2Z7fKRbNwoOJi9spS1xI+ZFVnJIOb3WL93HWG5vkXEPflpnbS3oYuOr3crQ0lKWztw21RDetdrs7rHn+tbLppKg1ICm0lJfRrSy+OgMLF4I3Kwa/o5vZiHmKJhohlJkTJioiZU6lBn2+j3Yt3amYFfLxNvUVIiROsEpnI7+SzPINt10BrsNI50Mu9CmkICL1nA9fNvyZYbPYe2oLAV/Ebj4lTw7FHSO3+snHgHciYMTgkfOdwG1XjA3nky8J/XvxezBQelP/3wxFQ/lNJWkpv0orrZAOmd0rJAVOPokycbyHa90uFVVlnd9ywcAWvix5pru84dT3MUHqml2s0GapDvTKFVNI4VDVWpOg1t91KthLysg53De5yhouG3vYPj5F7VeizcvCxw1UVd/RHOeIfFOvBL6E0dA0QwUHzW+FGFbjcSQ0z7ZPU9I1kF9ZDRn9kHJMrWUbXd2YGGQ6MFBEOiK1FuJgKGQw55nT6BOwLhn0d3FUoe6xNZ1SbZg=
                 tag: next
-                skip_cleanup: true
+                cleanup: false
                 on:
                     branch: master
                     repo: Ionaru/eve-utils
               - provider: npm
                 email: info@saturnserver.org
-                api_key:
+                api_token:
                     secure: RuvKs7XDnIkhLkEPoVS4rFJIxNfRyVmHKuLo9ib/CBMLc7eF7M5y536JY+O2oaKqNhzxvQShfnemoFWcTsUoilf5YighdiZb5Ex7sBCG/amU40N8Zl2jye7CKVqkuMtzTIxOv3qgduHkWo4G2My744f9r/mPt/6EPNO3l/MI+CEwNOce2Z7fKRbNwoOJi9spS1xI+ZFVnJIOb3WL93HWG5vkXEPflpnbS3oYuOr3crQ0lKWztw21RDetdrs7rHn+tbLppKg1ICm0lJfRrSy+OgMLF4I3Kwa/o5vZiHmKJhohlJkTJioiZU6lBn2+j3Yt3amYFfLxNvUVIiROsEpnI7+SzPINt10BrsNI50Mu9CmkICL1nA9fNvyZYbPYe2oLAV/Ebj4lTw7FHSO3+snHgHciYMTgkfOdwG1XjA3nky8J/XvxezBQelP/3wxFQ/lNJWkpv0orrZAOmd0rJAVOPokycbyHa90uFVVlnd9ywcAWvix5pru84dT3MUHqml2s0GapDvTKFVNI4VDVWpOg1t91KthLysg53De5yhouG3vYPj5F7VeizcvCxw1UVd/RHOeIfFOvBL6E0dA0QwUHzW+FGFbjcSQ0z7ZPU9I1kF9ZDRn9kHJMrWUbXd2YGGQ6MFBEOiK1FuJgKGQw55nT6BOwLhn0d3FUoe6xNZ1SbZg=
-                skip_cleanup: true
+                cleanup: false
                 on:
                     branch: master
                     repo: Ionaru/eve-utils
