@@ -4,14 +4,15 @@ All notable changes to the eve-utils project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+<!--## [Unreleased]-->
+## [6.0.0] - 2020-04-29
 ### BREAKING CHANGES
 - Updated getCharacterAssetsUrl and typings to v5.
 
 ### Added
 - Support for Node.js 14
 
-## [5.1.0] - 2020-01-03
+## [5.1.0] - 2020-04-20
 ### Added
 - /v1/markets/prices/ URL and typings.
 - /v1/industry/systems/ URL and typings.
@@ -130,7 +131,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial codebase, most copied from <https://github.com/Ionaru/evie>
 - Setup for this project
 
-[Unreleased]: https://github.com/Ionaru/eve-utils/compare/5.1.0...HEAD
+[Unreleased]: https://github.com/Ionaru/eve-utils/compare/6.0.0...HEAD
+[6.0.0]: https://github.com/Ionaru/eve-utils/compare/5.1.0...6.0.0
 [5.1.0]: https://github.com/Ionaru/eve-utils/compare/5.0.0...5.1.0
 [5.0.0]: https://github.com/Ionaru/eve-utils/compare/4.4.0...5.0.0
 [4.4.0]: https://github.com/Ionaru/eve-utils/compare/4.3.0...4.4.0
