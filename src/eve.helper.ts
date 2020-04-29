@@ -333,10 +333,6 @@ export class EVE {
     }
 
     /**
-     * Return a list of the characters assets (paginated).
-     * API return type: ICharacterAssetsData
-     */
-    /**
      * GET
      * https://esi.evetech.net/ui/?version=_latest#/Assets/get_characters_character_id_assets
      * /v3/characters/{character_id}/mail/labels/ -> ICharacterAssetsData
