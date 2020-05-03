@@ -5,26 +5,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added
-- Enum with ore types
-- Enum with gas types
-- Enum with mineral types
-- Enum with search categories
-- Uppercase values of IndustryActivity
+### BREAKING CHANGES
+- Removed EVE.ore.
+- Removed EVE.gas.
+- Removed EVE.mineral.
+- Removed ISearchCategories.
+- Removed 'Gamboge Cytoserocin', 'Hiemal Tricarboxyl Vapor' and 'Chartreuse Cytoserocin' from gasses list.
+- Removed lowercase values of IndustryActivity.
+- Removed 'all' values of EVE.ores and EVE.gasses.
+- Restructured EVE.ores to include moon and trig ores.
 
-### Changed
-- Deprecated EVE.ore
-- Deprecated EVE.gas
-- Deprecated EVE.mineral
-- Deprecated ISearchCategories
-- Deprecated lowercase values of IndustryActivity
+### Added
+- Enum with ore types.
+- Enum with gas types.
+- Enum with mineral types.
+- Enum with search categories.
+- Uppercase values of IndustryActivity.
 
 ## [6.0.0] - 2020-04-29
 ### BREAKING CHANGES
 - Updated getCharacterAssetsUrl and typings to v5.
 
 ### Added
-- Support for Node.js 14
+- Support for Node.js 14.
 
 ## [5.1.0] - 2020-04-20
 ### Added

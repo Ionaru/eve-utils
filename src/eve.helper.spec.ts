@@ -88,10 +88,9 @@ describe('URL creators', () => {
 
         // eslint-disable-next-line max-len
         [EVE.getSearchUrl('something'), 'https://esi.evetech.net/v2/search/?categories=agent,alliance,character,constellation,corporation,faction,inventory_type,region,solar_system,station&search=something'],
-        [EVE.getSearchUrl('something', ['region']), 'https://esi.evetech.net/v2/search/?categories=region&search=something'],
         [EVE.getSearchUrl('something', [SearchCategory.REGION]), 'https://esi.evetech.net/v2/search/?categories=region&search=something'],
         // eslint-disable-next-line max-len
-        [EVE.getSearchUrl('something', ['region', 'faction']), 'https://esi.evetech.net/v2/search/?categories=region,faction&search=something'],
+        [EVE.getSearchUrl('something', [SearchCategory.REGION, SearchCategory.FACTION]), 'https://esi.evetech.net/v2/search/?categories=region,faction&search=something'],
 
         [EVE.getUniverseCategoryUrl(5), 'https://esi.evetech.net/v1/universe/categories/5/'],
         [EVE.getUniverseCategoriesUrl(), 'https://esi.evetech.net/v1/universe/categories/'],
@@ -118,20 +117,31 @@ describe('URL creators', () => {
 
 describe('ores & minerals', () => {
     it('ores', () => {
-        expect.assertions(10);
+        expect.assertions(11);
 
-        expect(EVE.ores.highSec.base).toContain(Ore.Veldspar);
-        expect(EVE.ores.highSec.beltVariants).toContain(Ore['Concentrated Veldspar']);
-        expect(EVE.ores.highSec.beltVariants).toContain(Ore['Dense Veldspar']);
-        expect(EVE.ores.highSec.moonVariants).toContain(Ore['Stable Veldspar']);
+        expect((new Set(EVE.ores.belt.highSec)).size).toBe(EVE.ores.belt.highSec.length);
+        expect((new Set(EVE.ores.belt.lowSec)).size).toBe(EVE.ores.belt.lowSec.length);
+        expect((new Set(EVE.ores.belt.nullSec)).size).toBe(EVE.ores.belt.nullSec.length);
+        expect((new Set(EVE.ores.abyssal)).size).toBe(EVE.ores.abyssal.length);
+        expect((new Set(EVE.ores.moon.common)).size).toBe(EVE.ores.moon.common.length);
+        expect((new Set(EVE.ores.moon.exceptional)).size).toBe(EVE.ores.moon.exceptional.length);
+        expect((new Set(EVE.ores.moon.rare)).size).toBe(EVE.ores.moon.rare.length);
+        expect((new Set(EVE.ores.moon.standard)).size).toBe(EVE.ores.moon.standard.length);
+        expect((new Set(EVE.ores.moon.ubiquitous)).size).toBe(EVE.ores.moon.ubiquitous.length);
+        expect((new Set(EVE.ores.moon.uncommon)).size).toBe(EVE.ores.moon.uncommon.length);
 
-        expect(EVE.ores.all).toContain(Ore.Veldspar);
-        expect(EVE.ores.all).toContain(Ore['Concentrated Veldspar']);
-        expect(EVE.ores.all).toContain(Ore['Dense Veldspar']);
-        expect(EVE.ores.all).toContain(Ore['Stable Veldspar']);
-
-        expect((new Set(EVE.ores.all)).size).toBe(EVE.ores.all.length);
-        expect(Object.keys(Ore)).toHaveLength(EVE.ores.all.length * 2);
+        expect(Object.keys(Ore)).toHaveLength((
+            EVE.ores.belt.highSec.length +
+            EVE.ores.belt.lowSec.length +
+            EVE.ores.belt.nullSec.length +
+            EVE.ores.abyssal.length +
+            EVE.ores.moon.common.length +
+            EVE.ores.moon.exceptional.length +
+            EVE.ores.moon.rare.length +
+            EVE.ores.moon.standard.length +
+            EVE.ores.moon.ubiquitous.length +
+            EVE.ores.moon.uncommon.length
+        ) * 2);
     });
 
     it('minerals', () => {
@@ -151,13 +161,13 @@ describe('ores & minerals', () => {
     });
 
     it('gasses', () => {
-        expect.assertions(5);
+        expect.assertions(3);
 
-        expect(EVE.gasses.fullerenes).toContain(Gas['Fullerite-C72']);
-        expect(EVE.gasses.boosterGasClouds).toContain(Gas['Viridian Cytoserocin']);
-        expect(EVE.gasses.all).toContain(Gas['Gamboge Cytoserocin']);
+        expect((new Set(EVE.gasses.boosterGasClouds)).size).toBe(EVE.gasses.boosterGasClouds.length);
+        expect((new Set(EVE.gasses.fullerenes)).size).toBe(EVE.gasses.fullerenes.length);
 
-        expect((new Set(EVE.gasses.all)).size).toBe(EVE.gasses.all.length);
-        expect(Object.keys(Gas)).toHaveLength(EVE.gasses.all.length * 2);
+        expect(Object.keys(Gas)).toHaveLength((
+            EVE.gasses.boosterGasClouds.length + EVE.gasses.fullerenes.length
+        ) * 2);
     });
 });

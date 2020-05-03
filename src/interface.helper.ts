@@ -660,43 +660,6 @@ export enum IIndustrySystemsCostIndexActivity {
 }
 
 export enum IndustryActivity {
-    /**
-     * @deprecated Use IndustryActivity.NONE
-     */
-    none = 0,
-    /**
-     * @deprecated Use IndustryActivity.MANUFACTURING
-     */
-    manufacturing = 1,
-    /**
-     * @deprecated Use IndustryActivity.RESEARCH_TIME_EFFICIENCY
-     */
-    research_time_efficiency = 3,
-    /**
-     * @deprecated Use IndustryActivity.RESEARCH_MATERIAL_EFFICIENCY
-     */
-    research_material_efficiency = 4,
-    /**
-     * @deprecated Use IndustryActivity.COPYING
-     */
-    copying = 5,
-    /**
-     * @deprecated Use IndustryActivity.DUPLICATING
-     */
-    duplicating = 6,
-    /**
-     * @deprecated Use IndustryActivity.REVERSE_ENGINEERING
-     */
-    reverse_engineering = 7,
-    /**
-     * @deprecated Use IndustryActivity.INVENTION
-     */
-    invention = 8,
-    /**
-     * @deprecated Use IndustryActivity.REACTIONS
-     */
-    reactions = 11,
-
     NONE = 0,
     MANUFACTURING = 1,
     RESEARCH_TIME_EFFICIENCY = 3,
@@ -946,21 +909,6 @@ export type ICharacterBlueprintsLocationFlag =
     | 'FighterTube3'
     | 'FighterTube4'
     | 'Module';
-
-/**
- * @deprecated Use SearchCategory
- */
-export type ISearchCategories =
-    'agent'
-    | 'alliance'
-    | 'character'
-    | 'constellation'
-    | 'corporation'
-    | 'faction'
-    | 'inventory_type'
-    | 'region'
-    | 'solar_system'
-    | 'station';
 
 export interface ISearchData {
     agent?: number[];

@@ -77,4 +77,95 @@ export enum Ore {
     'Mercoxit' = 11396,
     'Magma Mercoxit' = 17869,
     'Vitreous Mercoxit' = 17870,
+
+    // Trig ores
+    'Bezdnacine' = 52316,
+    'Rakovene' = 52315,
+    'Talassonite' = 52306,
+
+    // Moon Ores
+    // Ubiquitous
+    'Bitumens' = 45492,
+    'Brimful Bitumens' = 46284,
+    'Glistening Bitumens' = 46285,
+
+    'Coesite' = 45493,
+    'Brimful Coesite' = 46286,
+    'Glistening Coesite' = 46287,
+
+    'Sylvite' = 45491,
+    'Brimful Sylvite' = 46282,
+    'Glistening Sylvite' = 46283,
+
+    'Zeolites' = 45490,
+    'Brimful Zeolites' = 46280,
+    'Glistening Zeolites' = 46281,
+
+    // Common
+    'Cobaltite' = 45494,
+    'Copious Cobaltite' = 46288,
+    'Twinkling Cobaltite' = 46289,
+
+    'Euxenite' = 45495,
+    'Copious Euxenite' = 46290,
+    'Twinkling Euxenite' = 46291,
+
+    'Scheelite' = 45497,
+    'Copious Scheelite' = 46294,
+    'Twinkling Scheelite' = 46295,
+
+    'Titanite' = 45496,
+    'Copious Titanite' = 46292,
+    'Twinkling Titanite' = 46293,
+
+    // Uncommon
+    'Chromite' = 45501,
+    'Lavish Chromite' = 46302,
+    'Shimmering Chromite' = 46303,
+
+    'Otavite' = 45498,
+    'Lavish Otavite' = 46296,
+    'Shimmering Otavite' = 46297,
+
+    'Sperrylite' = 45499,
+    'Lavish Sperrylite' = 46298,
+    'Shimmering Sperrylite' = 46299,
+
+    'Vanadinite' = 45500,
+    'Lavish Vanadinite' = 46300,
+    'Shimmering Vanadinite' = 46301,
+
+    // Rare
+    'Carnotite' = 45502,
+    'Replete Carnotite' = 46304,
+    'Glowing Carnotite' = 46305,
+
+    'Cinnabar' = 45506,
+    'Replete Cinnabar' = 46310,
+    'Glowing Cinnabar' = 46311,
+
+    'Pollucite' = 45504,
+    'Replete Pollucite' = 46308,
+    'Glowing Pollucite' = 46309,
+
+    'Zircon' = 45503,
+    'Replete Zircon' = 46306,
+    'Glowing Zircon' = 46307,
+
+    // Exceptional
+    'Monazite' = 45511,
+    'Bountiful Monazite' = 46314,
+    'Shining Monazite' = 46315,
+
+    'Loparite' = 45512,
+    'Bountiful Loparite' = 46316,
+    'Shining Loparite' = 46317,
+
+    'Xenotime' = 45510,
+    'Bountiful Xenotime' = 46312,
+    'Shining Xenotime' = 46313,
+
+    'Ytterbite' = 45513,
+    'Bountiful Ytterbite' = 46318,
+    'Shining Ytterbite' = 46319,
 }

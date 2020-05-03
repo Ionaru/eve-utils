@@ -15,11 +15,8 @@ export enum Gas {
     'Azure Mykoserocin' = 28695,
     'Celadon Cytoserocin' = 25275,
     'Celadon Mykoserocin' = 28696,
-    'Chartreuse Cytoserocin' = 28630, // Unavailable on market.
-    'Gamboge Cytoserocin' = 28629, // Unavailable on market.
     'Golden Cytoserocin' = 25273,
     'Golden Mykoserocin' = 28697,
-    'Hiemal Tricarboxyl Vapor' = 49787, // In Materials - Raw Materials - Standard Ores - Veldspar ?
     'Lime Cytoserocin' = 25277,
     'Lime Mykoserocin' = 28698,
     'Malachite Cytoserocin' = 25276,
