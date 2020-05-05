@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Enum with ore types.
+- Enum with ice types.
 - Enum with gas types.
 - Enum with mineral types.
 - Enum with search categories.

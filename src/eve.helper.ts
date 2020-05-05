@@ -1,5 +1,6 @@
 import { SearchCategory } from './interface.helper';
 import { Gas } from './types/gas';
+import { Ice } from './types/ice';
 import { Mineral } from './types/mineral';
 import { Ore } from './types/ore';
 
@@ -200,6 +201,29 @@ export class EVE {
             Ore.Bezdnacine,
             Ore.Rakovene,
             Ore.Talassonite,
+        ],
+    });
+
+    public static readonly ice = Object.freeze({
+        faction: [
+            Ice['Clear Icicle'],
+            Ice['White Glaze'],
+            Ice['Blue Ice'],
+            Ice['Glacial Mass'],
+        ],
+
+        enriched: [
+            Ice['Enriched Clear Icicle'],
+            Ice['Pristine White Glaze'],
+            Ice['Thick Blue Ice'],
+            Ice['Smooth Glacial Mass'],
+        ],
+
+        standard: [
+            Ice['Glare Crust'],
+            Ice['Dark Glitter'],
+            Ice.Gelidus,
+            Ice.Krystallos,
         ],
     });
 

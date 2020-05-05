@@ -1,4 +1,4 @@
-import { EVE, Gas, Mineral, Ore, SearchCategory } from './';
+import { EVE, Gas, Ice, Mineral, Ore, SearchCategory } from './';
 
 // eslint-disable-next-line jest/lowercase-name
 describe('URL tests', () => {
@@ -168,6 +168,18 @@ describe('ores & minerals', () => {
 
         expect(Object.keys(Gas)).toHaveLength((
             EVE.gasses.boosterGasClouds.length + EVE.gasses.fullerenes.length
+        ) * 2);
+    });
+
+    it('ice', () => {
+        expect.assertions(4);
+
+        expect((new Set(EVE.ice.faction)).size).toBe(EVE.ice.faction.length);
+        expect((new Set(EVE.ice.enriched)).size).toBe(EVE.ice.enriched.length);
+        expect((new Set(EVE.ice.standard)).size).toBe(EVE.ice.standard.length);
+
+        expect(Object.keys(Ice)).toHaveLength((
+            EVE.ice.faction.length + EVE.ice.enriched.length + EVE.ice.standard.length
         ) * 2);
     });
 });
