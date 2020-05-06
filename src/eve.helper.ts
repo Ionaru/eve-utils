@@ -446,17 +446,26 @@ export class EVE {
         );
     }
 
-    public static getMarketOrdersUrl(regionId: number, typeId: number, page: number, orderType: 'buy' | 'sell' | 'all' = 'all') {
-        // IMarketOrdersData
-        return EVE.constructESIUrl(
-            1,
-            ['markets', regionId, 'orders'],
-            {
-                order_type: orderType,
-                page,
-                type_id: typeId,
-            },
-        );
+    /**
+     * GET
+     * https://esi.evetech.net/ui/?version=_latest#/Market/get_markets_prices
+     * /v1/markets/prices/ -> IMarketPricesData
+     */
+    public static getMarketOrdersUrl(
+        {regionId, typeId, page = 1, orderType = 'all'}:
+            { regionId: number; typeId?: number; page?: number; orderType?: 'buy' | 'sell' | 'all' }
+    ) {
+        const params = {
+            order_type: orderType,
+            page,
+        };
+
+        if (typeId) {
+            // @ts-ignore
+            params.type_id = typeId;
+        }
+
+        return EVE.constructESIUrl(1, ['markets', regionId, 'orders'], params);
     }
 
     /**

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { EVE, Gas, Ice, Mineral, Ore, SearchCategory } from './';
 
 // eslint-disable-next-line jest/lowercase-name
@@ -75,10 +76,14 @@ describe('URL creators', () => {
         [EVE.getMarketGroupsUrl(), 'https://esi.evetech.net/v1/markets/groups/'],
         [EVE.getMarketGroupUrl(5), 'https://esi.evetech.net/v1/markets/groups/5/'],
 
-        [EVE.getMarketOrdersUrl(5, 6, 7, 'buy'), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=buy&page=7&type_id=6'],
-        [EVE.getMarketOrdersUrl(5, 6, 7, 'sell'), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=sell&page=7&type_id=6'],
-        [EVE.getMarketOrdersUrl(5, 6, 7, 'all'), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=all&page=7&type_id=6'],
-        [EVE.getMarketOrdersUrl(5, 6, 7), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=all&page=7&type_id=6'],
+        [EVE.getMarketOrdersUrl({regionId: 5, typeId: 6, page: 7, orderType: 'buy'}), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=buy&page=7&type_id=6'],
+        [EVE.getMarketOrdersUrl({regionId: 5, typeId: 6, page: 7, orderType: 'sell'}), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=sell&page=7&type_id=6'],
+        [EVE.getMarketOrdersUrl({regionId: 5, typeId: 6, page: 7, orderType: 'all'}), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=all&page=7&type_id=6'],
+        [EVE.getMarketOrdersUrl({regionId: 5, typeId: 6, page: 7}), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=all&page=7&type_id=6'],
+        [EVE.getMarketOrdersUrl({regionId: 5, typeId: 6}), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=all&page=1&type_id=6'],
+        [EVE.getMarketOrdersUrl({regionId: 5, page: 6}), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=all&page=6'],
+        [EVE.getMarketOrdersUrl({regionId: 5, orderType: 'sell'}), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=sell&page=1'],
+        [EVE.getMarketOrdersUrl({regionId: 5}), 'https://esi.evetech.net/v1/markets/5/orders/?order_type=all&page=1'],
 
         [EVE.getMarketHistoryUrl(5, 6), 'https://esi.evetech.net/v1/markets/5/history/?type_id=6'],
 
@@ -86,10 +91,8 @@ describe('URL creators', () => {
 
         [EVE.getStatusUrl(), 'https://esi.evetech.net/v1/status/'],
 
-        // eslint-disable-next-line max-len
         [EVE.getSearchUrl('something'), 'https://esi.evetech.net/v2/search/?categories=agent,alliance,character,constellation,corporation,faction,inventory_type,region,solar_system,station&search=something'],
         [EVE.getSearchUrl('something', [SearchCategory.REGION]), 'https://esi.evetech.net/v2/search/?categories=region&search=something'],
-        // eslint-disable-next-line max-len
         [EVE.getSearchUrl('something', [SearchCategory.REGION, SearchCategory.FACTION]), 'https://esi.evetech.net/v2/search/?categories=region,faction&search=something'],
 
         [EVE.getUniverseCategoryUrl(5), 'https://esi.evetech.net/v1/universe/categories/5/'],

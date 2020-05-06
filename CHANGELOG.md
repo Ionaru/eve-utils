@@ -23,6 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enum with search categories.
 - Uppercase values of IndustryActivity.
 
+### Changed
+- Made typeId in getMarketOrdersUrl optional.
+- Made page in getMarketOrdersUrl optional.
+
 ## [6.0.0] - 2020-04-29
 ### BREAKING CHANGES
 - Updated getCharacterAssetsUrl and typings to v5.
