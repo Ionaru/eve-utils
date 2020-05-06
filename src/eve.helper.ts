@@ -448,8 +448,8 @@ export class EVE {
 
     /**
      * GET
-     * https://esi.evetech.net/ui/?version=_latest#/Market/get_markets_prices
-     * /v1/markets/prices/ -> IMarketPricesData
+     * https://esi.evetech.net/ui/#/Market/get_markets_region_id_orders
+     * /v1/markets/{region_id}/orders/ -> IMarketOrdersData
      */
     public static getMarketOrdersUrl(
         {regionId, typeId, page = 1, orderType = 'all'}:
