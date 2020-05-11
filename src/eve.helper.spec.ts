@@ -70,6 +70,8 @@ describe('URL creators', () => {
         [EVE.getIndustryActivitySkillsUrl(), 'https://sde.zzeve.com/industryActivitySkills.json'],
         [EVE.getIndustryActivityUrl(), 'https://sde.zzeve.com/industryActivity.json'],
         [EVE.getInvTypeMaterialsUrl(), 'https://sde.zzeve.com/invTypeMaterials.json'],
+        [EVE.getPlanetSchematicsUrl(), 'https://sde.zzeve.com/planetSchematics.json'],
+        [EVE.getPlanetSchematicsTypeMapUrl(), 'https://sde.zzeve.com/planetSchematicsTypeMap.json'],
 
         [EVE.getIndustrySystemsUrl(), 'https://esi.evetech.net/v1/industry/systems/'],
 

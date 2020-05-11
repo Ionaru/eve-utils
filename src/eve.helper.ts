@@ -267,6 +267,14 @@ export class EVE {
         return `${EVE.SDEURL}/industryActivitySkills.json`;
     }
 
+    public static getPlanetSchematicsUrl() {
+        return `${EVE.SDEURL}/planetSchematics.json`;
+    }
+
+    public static getPlanetSchematicsTypeMapUrl() {
+        return `${EVE.SDEURL}/planetSchematicsTypeMap.json`;
+    }
+
     // Character
 
     public static getCharacterUrl(characterId: number) {
