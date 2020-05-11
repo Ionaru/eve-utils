@@ -1023,3 +1023,20 @@ export enum SearchCategory {
     SOLAR_SYSTEM = 'solar_system',
     STATION = 'station',
 }
+
+export type IPlanetSchematicsData = IPlanetSchematic[];
+
+export interface IPlanetSchematic {
+    schematicID: number;
+    schematicName: string;
+    cycleTime: number;
+}
+
+export type IPlanetSchematicsTypeMapData = IPlanetSchematicsTypeMap[];
+
+export interface IPlanetSchematicsTypeMap {
+    schematicID: number;
+    typeID: number;
+    quantity: number;
+    isInput: 1 | 0;
+}

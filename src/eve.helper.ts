@@ -267,10 +267,18 @@ export class EVE {
         return `${EVE.SDEURL}/industryActivitySkills.json`;
     }
 
+    /**
+     * GET
+     * /planetSchematics.json -> IPlanetSchematicsData
+     */
     public static getPlanetSchematicsUrl() {
         return `${EVE.SDEURL}/planetSchematics.json`;
     }
 
+    /**
+     * GET
+     * /planetSchematicsTypeMap.json -> IPlanetSchematicsTypeMapData
+     */
     public static getPlanetSchematicsTypeMapUrl() {
         return `${EVE.SDEURL}/planetSchematicsTypeMap.json`;
     }

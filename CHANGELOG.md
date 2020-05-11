@@ -22,8 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enum with mineral types.
 - Enum with search categories.
 - Uppercase values of IndustryActivity.
-- /planetSchematicsTypeMap.json URL.
-- /planetSchematics.json URL.
+- /planetSchematicsTypeMap.json URL and typings.
+- /planetSchematics.json URL and typings.
 
 ### Changed
 - Made typeId in getMarketOrdersUrl optional.
