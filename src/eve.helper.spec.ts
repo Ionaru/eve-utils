@@ -103,7 +103,7 @@ describe('URL creators', () => {
         [EVE.getUniverseConstellationUrl(5), 'https://esi.evetech.net/v1/universe/constellations/5/'],
         [EVE.getUniverseGroupUrl(5), 'https://esi.evetech.net/v1/universe/groups/5/'],
         [EVE.getUniverseGroupsUrl(), 'https://esi.evetech.net/v1/universe/groups/'],
-        [EVE.getUniverseNamesUrl(), 'https://esi.evetech.net/v2/universe/names/'],
+        [EVE.getUniverseNamesUrl(), 'https://esi.evetech.net/v3/universe/names/'],
         [EVE.getUniverseRegionsUrl(), 'https://esi.evetech.net/v1/universe/regions/'],
         [EVE.getUniverseRegionUrl(5), 'https://esi.evetech.net/v1/universe/regions/5/'],
         [EVE.getUniverseStructureUrl(5), 'https://esi.evetech.net/v2/universe/structures/5/'],
