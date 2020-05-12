@@ -541,9 +541,13 @@ export class EVE {
         return EVE.constructESIUrl(1, ['universe', 'types'], {page});
     }
 
+    /**
+     * POST
+     * https://esi.evetech.net/ui/#/Universe/post_universe_names
+     * /v3/universe/names/ -> IUniverseNamesData
+     */
     public static getUniverseNamesUrl() {
-        // IUniverseNamesData
-        return EVE.constructESIUrl(2, ['universe', 'names']);
+        return EVE.constructESIUrl(3, ['universe', 'names']);
     }
 
     public static getUniverseCategoryUrl(categoryId: number) {

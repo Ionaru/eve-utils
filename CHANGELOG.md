@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed lowercase values of IndustryActivity.
 - Removed 'all' values of EVE.ores and EVE.gasses.
 - Restructured EVE.ores to include moon and trig ores.
+- Updated getUniverseNamesUrl to v3.
 
 ### Added
 - Enum with ore types.
