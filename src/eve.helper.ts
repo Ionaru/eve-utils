@@ -441,18 +441,30 @@ export class EVE {
 
     // Market
 
+    /**
+     * GET
+     * https://esi.evetech.net/ui/#/Market/get_markets_groups_market_group_id
+     * /v1/markets/groups/{market_group_id}/ -> MarketGroupsData
+     */
     public static getMarketGroupUrl(groupId: number) {
-        // MarketGroupsData
         return EVE.constructESIUrl(1, ['markets', 'groups', groupId]);
     }
 
+    /**
+     * GET
+     * https://esi.evetech.net/ui/#/Market/get_markets_groups
+     * /v1/markets/groups/ -> number[]
+     */
     public static getMarketGroupsUrl() {
-        // number[]
         return EVE.constructESIUrl(1, ['markets', 'groups']);
     }
 
+    /**
+     * GET
+     * https://esi.evetech.net/ui/#/Market/get_markets_region_id_history
+     * /v1/markets/{region_id}/history/ -> IMarketHistoryData
+     */
     public static getMarketHistoryUrl(regionId: number, typeId: number) {
-        // IMarketHistoryData
         return EVE.constructESIUrl(
             1,
             ['markets', regionId, 'history'],
