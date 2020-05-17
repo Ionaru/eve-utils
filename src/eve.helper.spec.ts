@@ -93,9 +93,10 @@ describe('URL creators', () => {
 
         [EVE.getStatusUrl(), 'https://esi.evetech.net/v1/status/'],
 
-        [EVE.getSearchUrl('something'), 'https://esi.evetech.net/v2/search/?categories=agent,alliance,character,constellation,corporation,faction,inventory_type,region,solar_system,station&search=something'],
-        [EVE.getSearchUrl('something', [SearchCategory.REGION]), 'https://esi.evetech.net/v2/search/?categories=region&search=something'],
-        [EVE.getSearchUrl('something', [SearchCategory.REGION, SearchCategory.FACTION]), 'https://esi.evetech.net/v2/search/?categories=region,faction&search=something'],
+        [EVE.getSearchUrl('something'), 'https://esi.evetech.net/v2/search/?categories=agent,alliance,character,constellation,corporation,faction,inventory_type,region,solar_system,station&search=something&strict=false'],
+        [EVE.getSearchUrl('something', [SearchCategory.REGION]), 'https://esi.evetech.net/v2/search/?categories=region&search=something&strict=false'],
+        [EVE.getSearchUrl('something', [SearchCategory.REGION], true), 'https://esi.evetech.net/v2/search/?categories=region&search=something&strict=true'],
+        [EVE.getSearchUrl('something', [SearchCategory.REGION, SearchCategory.FACTION]), 'https://esi.evetech.net/v2/search/?categories=region,faction&search=something&strict=false'],
 
         [EVE.getUniverseCategoryUrl(5), 'https://esi.evetech.net/v1/universe/categories/5/'],
         [EVE.getUniverseCategoriesUrl(), 'https://esi.evetech.net/v1/universe/categories/'],

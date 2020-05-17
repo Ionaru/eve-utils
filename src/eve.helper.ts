@@ -5,7 +5,7 @@ import { Mineral } from './types/mineral';
 import { Ore } from './types/ore';
 
 interface IQueryParams {
-    [key: string]: string | number;
+    [key: string]: string | number | boolean;
 }
 
 type ArrayOneOrMore<T> = {
@@ -628,10 +628,11 @@ export class EVE {
      * https://esi.evetech.net/ui/?version=_latest#/Search/get_search
      * /v2/search/ -> ISearchData
      */
-    public static getSearchUrl(search: string, searchCategories?: ArrayOneOrMore<SearchCategory>) {
+    public static getSearchUrl(search: string, searchCategories?: ArrayOneOrMore<SearchCategory>, strict = false) {
         return EVE.constructESIUrl(2, ['search'], {
             categories: (searchCategories || Object.values(SearchCategory)).join(','),
             search,
+            strict,
         });
     }
 
