@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { SearchCategory } from './interface.helper';
 import { Gas } from './types/gas';
 import { Ice } from './types/ice';
@@ -489,6 +490,7 @@ export class EVE {
         };
 
         if (typeId) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             params.type_id = typeId;
         }
@@ -643,5 +645,32 @@ export class EVE {
      */
     public static getIndustrySystemsUrl() {
         return EVE.constructESIUrl(1, ['industry', 'systems']);
+    }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/#/Contracts/get_contracts_public_region_id
+     * /v1/contracts/public/{region_id}/ -> IContractsData
+     */
+    public static getContractsUrl(region: number) {
+        return EVE.constructESIUrl(1, ['contracts', 'public', region]);
+    }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/#/Contracts/get_contracts_public_bids_contract_id
+     * /v1/contracts/public/bids/{contract_id}/ -> IContractBidsData
+     */
+    public static getContractBidsUrl(contractId: number) {
+        return EVE.constructESIUrl(1, ['contracts', 'public', 'bids', contractId]);
+    }
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/#/Contracts/get_contracts_public_items_contract_id
+     * /v1/contracts/public/items/{contract_id}/ -> IContractItemsData
+     */
+    public static getContractItemsUrl(contractId: number) {
+        return EVE.constructESIUrl(1, ['contracts', 'public', 'items', contractId]);
     }
 }

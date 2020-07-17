@@ -1040,3 +1040,58 @@ export interface IPlanetSchematicsTypeMap {
     quantity: number;
     isInput: 1 | 0;
 }
+
+export type IContractsData = IContract[];
+
+export enum ContractType {
+    UNKNOWN = 'unknown',
+    ITEM_EXCHANGE = 'item_exchange',
+    AUCTION = 'auction',
+    COURIER = 'courier',
+    LOAN = 'loan',
+}
+
+export interface IContract {
+    buyout?: number;
+    collateral?: number;
+    contract_id: number;
+    date_expired: string;
+    date_issued: string;
+    days_to_complete?: number;
+    end_location_id?: number;
+    for_corporation?: boolean;
+    issuer_corporation_id: number;
+    issuer_id: number;
+    price?: number;
+    reward?: number;
+    start_location_id?: number;
+    title?: string;
+    type: ContractType;
+    volume?: number;
+}
+
+export type IContractBidsData = IContractBid[];
+
+export interface IContractBid {
+    amount: number;
+    bid_id: number;
+    date_bid: string;
+}
+
+export type IContractItemsData = IContractBid[];
+
+export interface IContractItem {
+    is_blueprint_copy?: boolean;
+    // true if the contract issuer has submitted this item with the contract, false if the issuer is asking for this item in the contract
+    is_included: boolean;
+    // Unique ID for the item being sold. Not present if item is being requested by contract rather than sold with contract
+    item_id?: number;
+    material_efficiency?: number;
+    quantity: number;
+    // Unique ID for the item, used by the contract system
+    record_id: number;
+    runs?: number;
+    time_efficiency?: number;
+    // Type ID for item
+    type_id: number;
+}
