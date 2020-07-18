@@ -119,6 +119,8 @@ describe('URL creators', () => {
         [EVE.getContractBidsUrl(5), 'https://esi.evetech.net/v1/contracts/public/bids/5/'],
         [EVE.getContractItemsUrl(5), 'https://esi.evetech.net/v1/contracts/public/items/5/'],
 
+        [EVE.getRouteUrl(5, 6), 'https://esi.evetech.net/v1/route/5/6/'],
+
     ])('URL creator %p', (url, expected) => {
         expect.assertions(1);
         expect(url).toStrictEqual(expected);

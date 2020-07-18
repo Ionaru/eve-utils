@@ -673,4 +673,14 @@ export class EVE {
     public static getContractItemsUrl(contractId: number) {
         return EVE.constructESIUrl(1, ['contracts', 'public', 'items', contractId]);
     }
+
+
+    /**
+     * GET
+     * https://esi.evetech.net/ui/#/Routes/get_route_origin_destination
+     * /v1/route/{origin}/{destination}/ -> number[]
+     */
+    public static getRouteUrl(origin: number, destination: number) {
+        return EVE.constructESIUrl(1, ['route', origin, destination]);
+    }
 }

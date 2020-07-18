@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- /v1/route/{origin}/{destination}/ URL and typings.
 - /v1/contracts/public/{region_id}/ URL and typings.
 - /v1/contracts/public/bids/{contract_id}/ URL and typings.
 - /v1/contracts/public/items/{contract_id}/ URL and typings.
