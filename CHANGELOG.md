@@ -4,7 +4,8 @@ All notable changes to the eve-utils project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+<!--## [Unreleased]-->
+## [7.2.0] - 2020-07-18
 ### Added
 - /v1/route/{origin}/{destination}/ URL and typings.
 - /v1/contracts/public/{region_id}/ URL and typings.
@@ -167,7 +168,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial codebase, most copied from <https://github.com/Ionaru/evie>
 - Setup for this project
 
-[Unreleased]: https://github.com/Ionaru/eve-utils/compare/7.1.0...HEAD
+[Unreleased]: https://github.com/Ionaru/eve-utils/compare/7.2.0...HEAD
+[7.2.0]: https://github.com/Ionaru/eve-utils/compare/7.1.0...7.2.0
 [7.1.0]: https://github.com/Ionaru/eve-utils/compare/7.0.0...7.1.0
 [7.0.0]: https://github.com/Ionaru/eve-utils/compare/6.0.0...7.0.0
 [6.0.0]: https://github.com/Ionaru/eve-utils/compare/5.1.0...6.0.0
