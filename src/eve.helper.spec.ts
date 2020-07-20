@@ -115,9 +115,12 @@ describe('URL creators', () => {
         [EVE.getUniverseTypeUrl(5), 'https://esi.evetech.net/v3/universe/types/5/'],
         [EVE.getUniverseTypesUrl(5), 'https://esi.evetech.net/v1/universe/types/?page=5'],
 
-        [EVE.getContractsUrl(5), 'https://esi.evetech.net/v1/contracts/public/5/'],
-        [EVE.getContractBidsUrl(5), 'https://esi.evetech.net/v1/contracts/public/bids/5/'],
-        [EVE.getContractItemsUrl(5), 'https://esi.evetech.net/v1/contracts/public/items/5/'],
+        [EVE.getContractsUrl(5), 'https://esi.evetech.net/v1/contracts/public/5/?page=1'],
+        [EVE.getContractsUrl(5, 6), 'https://esi.evetech.net/v1/contracts/public/5/?page=6'],
+        [EVE.getContractBidsUrl(5), 'https://esi.evetech.net/v1/contracts/public/bids/5/?page=1'],
+        [EVE.getContractBidsUrl(5, 6), 'https://esi.evetech.net/v1/contracts/public/bids/5/?page=6'],
+        [EVE.getContractItemsUrl(5), 'https://esi.evetech.net/v1/contracts/public/items/5/?page=1'],
+        [EVE.getContractItemsUrl(5, 6), 'https://esi.evetech.net/v1/contracts/public/items/5/?page=6'],
 
         [EVE.getRouteUrl(5, 6), 'https://esi.evetech.net/v1/route/5/6/'],
 

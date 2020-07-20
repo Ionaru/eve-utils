@@ -652,8 +652,8 @@ export class EVE {
      * https://esi.evetech.net/ui/#/Contracts/get_contracts_public_region_id
      * /v1/contracts/public/{region_id}/ -> IContractsData
      */
-    public static getContractsUrl(region: number) {
-        return EVE.constructESIUrl(1, ['contracts', 'public', region]);
+    public static getContractsUrl(region: number, page = 1) {
+        return EVE.constructESIUrl(1, ['contracts', 'public', region], {page});
     }
 
     /**
@@ -661,8 +661,8 @@ export class EVE {
      * https://esi.evetech.net/ui/#/Contracts/get_contracts_public_bids_contract_id
      * /v1/contracts/public/bids/{contract_id}/ -> IContractBidsData
      */
-    public static getContractBidsUrl(contractId: number) {
-        return EVE.constructESIUrl(1, ['contracts', 'public', 'bids', contractId]);
+    public static getContractBidsUrl(contractId: number, page = 1) {
+        return EVE.constructESIUrl(1, ['contracts', 'public', 'bids', contractId], {page});
     }
 
     /**
@@ -670,10 +670,9 @@ export class EVE {
      * https://esi.evetech.net/ui/#/Contracts/get_contracts_public_items_contract_id
      * /v1/contracts/public/items/{contract_id}/ -> IContractItemsData
      */
-    public static getContractItemsUrl(contractId: number) {
-        return EVE.constructESIUrl(1, ['contracts', 'public', 'items', contractId]);
+    public static getContractItemsUrl(contractId: number, page = 1) {
+        return EVE.constructESIUrl(1, ['contracts', 'public', 'items', contractId], {page});
     }
-
 
     /**
      * GET
