@@ -1078,7 +1078,7 @@ export interface IContractBid {
     date_bid: string;
 }
 
-export type IContractItemsData = IContractBid[];
+export type IContractItemsData = IContractItem[];
 
 export interface IContractItem {
     is_blueprint_copy?: boolean;
