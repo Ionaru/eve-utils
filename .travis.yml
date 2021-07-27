@@ -1,8 +1,8 @@
 language: node_js
 node_js:
+    - '16' # EOL: April 2024
     - '14' # EOL: April 2023
     - '12' # EOL: April 2022
-    - '10' # EOL: April 2021
 
 jobs:
     include:
