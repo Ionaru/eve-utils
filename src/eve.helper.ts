@@ -68,6 +68,12 @@ export class EVE {
     ]);
 
     public static readonly ores = Object.freeze({
+        abyssal: [
+            Ore.Bezdnacine,
+            Ore.Rakovene,
+            Ore.Talassonite,
+        ],
+
         belt: {
             highSec: [
                 Ore.Veldspar, Ore['Concentrated Veldspar'], Ore['Dense Veldspar'],
@@ -197,27 +203,21 @@ export class EVE {
                 Ore['Shimmering Vanadinite'],
             ],
         },
-
-        abyssal: [
-            Ore.Bezdnacine,
-            Ore.Rakovene,
-            Ore.Talassonite,
-        ],
     });
 
     public static readonly ice = Object.freeze({
-        faction: [
-            Ice['Clear Icicle'],
-            Ice['White Glaze'],
-            Ice['Blue Ice'],
-            Ice['Glacial Mass'],
-        ],
-
         enriched: [
             Ice['Enriched Clear Icicle'],
             Ice['Pristine White Glaze'],
             Ice['Thick Blue Ice'],
             Ice['Smooth Glacial Mass'],
+        ],
+
+        faction: [
+            Ice['Clear Icicle'],
+            Ice['White Glaze'],
+            Ice['Blue Ice'],
+            Ice['Glacial Mass'],
         ],
 
         standard: [

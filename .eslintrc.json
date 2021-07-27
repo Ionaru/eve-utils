@@ -8,7 +8,9 @@
         "sourceType": "module"
     },
     "extends": [
-        "@ionaru",
-        "plugin:jest/all"
-    ]
+        "@ionaru"
+    ],
+    "rules": {
+        "import/extensions": "off"
+    }
 }
