@@ -331,7 +331,7 @@ export class EVE {
      */
     public static getCharacterBlueprintsUrl(characterId: number, page: number) {
         // ICharacterBlueprintsData
-        return EVE.constructESIUrl(2, ['characters', characterId, 'blueprints'], {page});
+        return EVE.constructESIUrl(3, ['characters', characterId, 'blueprints'], {page});
     }
 
     public static getCharacterAttributesUrl(characterId: number) {
