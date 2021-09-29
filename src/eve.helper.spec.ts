@@ -22,16 +22,16 @@ describe('URL tests', () => {
         expect.assertions(4);
 
         const url1 = EVE.constructESIUrl(1, [], {param1: 1});
-        expect(url1).toStrictEqual('https://esi.evetech.net/v1/?param1=1');
+        expect(url1).toBe('https://esi.evetech.net/v1/?param1=1');
 
         const url2 = EVE.constructESIUrl(1, ['thing'], {param1: 1});
-        expect(url2).toStrictEqual('https://esi.evetech.net/v1/thing/?param1=1');
+        expect(url2).toBe('https://esi.evetech.net/v1/thing/?param1=1');
 
         const url3 = EVE.constructESIUrl(1, [], {param1: 1, param2: 'something'});
-        expect(url3).toStrictEqual('https://esi.evetech.net/v1/?param1=1&param2=something');
+        expect(url3).toBe('https://esi.evetech.net/v1/?param1=1&param2=something');
 
         const url4 = EVE.constructESIUrl(1, ['thing'], {param1: 1, param2: 'something'});
-        expect(url4).toStrictEqual('https://esi.evetech.net/v1/thing/?param1=1&param2=something');
+        expect(url4).toBe('https://esi.evetech.net/v1/thing/?param1=1&param2=something');
     });
 });
 
@@ -40,7 +40,7 @@ describe('URL creators', () => {
 
     it.each([
 
-        [EVE.getCharacterUrl(5), 'https://esi.evetech.net/v4/characters/5/'],
+        [EVE.getCharacterUrl(5), 'https://esi.evetech.net/v5/characters/5/'],
         [EVE.getCharacterAttributesUrl(5), 'https://esi.evetech.net/v1/characters/5/attributes/'],
         [EVE.getCharacterAssetsUrl(5, 6), 'https://esi.evetech.net/v5/characters/5/assets/?page=6'],
         [EVE.getCharacterAssetsLocationsUrl(5), 'https://esi.evetech.net/v2/characters/5/assets/locations/'],
@@ -126,7 +126,7 @@ describe('URL creators', () => {
 
     ])('URL creator %p', (url, expected) => {
         expect.assertions(1);
-        expect(url).toStrictEqual(expected);
+        expect(url).toBe(expected);
     });
 });
 

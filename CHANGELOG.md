@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Node.js 16 support.
 
 ### Changed
+- Updated getCharacterUrl to v5 (no route changes).
 - Updated getCharacterBlueprintsUrl to v3 (no route changes).
 
 ## [7.3.1] - 2020-07-20

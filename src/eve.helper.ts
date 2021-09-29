@@ -288,7 +288,7 @@ export class EVE {
 
     public static getCharacterUrl(characterId: number) {
         // ICharacterData
-        return EVE.constructESIUrl(4, ['characters', characterId]);
+        return EVE.constructESIUrl(5, ['characters', characterId]);
     }
 
     /**
