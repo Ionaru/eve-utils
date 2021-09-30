@@ -1,6 +1,6 @@
 {
     "name": "@ionaru/eve-utils",
-    "version": "7.3.1",
+    "version": "8.0.0",
     "description": "My package eve-utils",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
