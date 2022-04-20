@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { EVE, Gas, Ice, Mineral, Ore, SearchCategory } from './';
 
-// eslint-disable-next-line jest/lowercase-name
+// eslint-disable-next-line jest/prefer-lowercase-title
 describe('URL tests', () => {
 
     it.each([
@@ -35,7 +35,7 @@ describe('URL tests', () => {
     });
 });
 
-// eslint-disable-next-line jest/lowercase-name
+// eslint-disable-next-line jest/prefer-lowercase-title
 describe('URL creators', () => {
 
     it.each([
@@ -124,6 +124,7 @@ describe('URL creators', () => {
 
         [EVE.getRouteUrl(5, 6), 'https://esi.evetech.net/v1/route/5/6/'],
 
+        // eslint-disable-next-line jest/prefer-lowercase-title
     ])('URL creator %p', (url, expected) => {
         expect.assertions(1);
         expect(url).toBe(expected);
