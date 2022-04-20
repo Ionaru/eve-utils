@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export enum Ore {
     'Veldspar' = 1230,
     'Concentrated Veldspar' = 17470,

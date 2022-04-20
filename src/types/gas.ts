@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export enum Gas {
     'Fullerite-C28' = 30375,
     'Fullerite-C32' = 30376,

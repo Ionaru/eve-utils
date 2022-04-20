@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export enum Ice {
     'Blue Ice' = 16264,
     'Clear Icicle' = 16262,

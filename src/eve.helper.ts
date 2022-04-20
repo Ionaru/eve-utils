@@ -18,7 +18,9 @@ type ArrayOneOrMore<T> = {
  */
 export class EVE {
 
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     public static readonly ESIURL = 'https://esi.evetech.net';
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     public static readonly SDEURL = 'https://sde.zzeve.com';
 
     // noinspection JSUnusedGlobalSymbols

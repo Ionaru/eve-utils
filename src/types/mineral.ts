@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export enum Mineral {
     Tritanium = 34,
     Pyerite = 35,

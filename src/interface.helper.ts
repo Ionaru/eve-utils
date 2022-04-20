@@ -185,6 +185,7 @@ export interface ICharacterAttributesData {
     willpower: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export type contextIdType =
     'structure_id'
     | 'station_id'
@@ -199,6 +200,7 @@ export type contextIdType =
     | 'system_id'
     | 'type_id';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export type refType =
     'acceleration_gate_fee'
     | 'advertisement_listing_fee'
